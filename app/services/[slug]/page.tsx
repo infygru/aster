@@ -161,7 +161,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
                   <li key={f} className="flex items-start gap-4">
                     <div className="w-8 h-8 rounded-xl flex items-center justify-center flex-shrink-0 mt-0.5"
                       style={{ background: '#EFF6FF' }}>
-                      <CheckCircle className="w-4 h-4" style={{ color: '#2563EB' }} aria-hidden="true" />
+                      <span style={{ color: '#2563EB' }} aria-hidden="true"><CheckCircle className="w-4 h-4" /></span>
                     </div>
                     <p className="font-semibold text-sm pt-1.5" style={{ color: '#0F172A' }}>{f}</p>
                   </li>
@@ -251,7 +251,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
                   aria-label={`Learn about ${s.title}`}>
                   <div className="w-10 h-10 rounded-xl flex items-center justify-center mb-4 flex-shrink-0"
                     style={{ background: '#EFF6FF' }} aria-hidden="true">
-                    <Heart className="w-5 h-5" style={{ color: '#2563EB' }} />
+                    <span style={{ color: '#2563EB' }}><Heart className="w-5 h-5" /></span>
                   </div>
                   <h3 className="font-bold text-sm mb-2 leading-snug" style={{ color: '#0F172A' }}>{s.title}</h3>
                   <p className="text-xs leading-relaxed flex-1 mb-4" style={{ color: '#64748B' }}>{s.description}</p>

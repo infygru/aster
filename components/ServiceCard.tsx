@@ -46,7 +46,7 @@ export function ServiceCard({ service }: { service: Service }) {
     >
       <div className="w-11 h-11 rounded-xl flex items-center justify-center mb-4 transition-transform duration-200 group-hover:scale-105"
         style={{ background: c.iconBg }}>
-        <Icon className="w-5 h-5" style={{ color: c.iconColor }} aria-hidden="true" />
+        <span style={{ color: c.iconColor }} aria-hidden="true"><Icon className="w-5 h-5" /></span>
       </div>
 
       <h3 id={`service-${service.id}-title`}
@@ -62,7 +62,7 @@ export function ServiceCard({ service }: { service: Service }) {
         <ul className="space-y-1.5 mb-5" role="list">
           {service.features.slice(0, 4).map((f) => (
             <li key={f} className="flex items-start gap-2 text-xs" style={{ color: '#64748B' }}>
-              <CheckCircle className="w-3.5 h-3.5 mt-0.5 flex-shrink-0" style={{ color: c.checkColor }} aria-hidden="true" />
+              <span style={{ color: c.checkColor }} aria-hidden="true"><CheckCircle className="w-3.5 h-3.5 mt-0.5 flex-shrink-0" /></span>
               {f}
             </li>
           ))}

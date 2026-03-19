@@ -85,7 +85,7 @@ function StandardCard({ service, num }: { service: DirectusService; num: string 
       <div className="flex items-start justify-between mb-4">
         <div className="w-12 h-12 rounded-2xl flex items-center justify-center flex-shrink-0"
           style={{ background: '#EFF6FF' }}>
-          <Icon className="w-5 h-5" style={{ color: '#2563EB' }} aria-hidden="true" />
+          <span style={{ color: '#2563EB' }} aria-hidden="true"><Icon className="w-5 h-5" /></span>
         </div>
         <span className="text-xs font-black tracking-wider" style={{ color: '#CBD5E1' }}>{num}</span>
       </div>
@@ -168,7 +168,7 @@ export function ServiceGrid({ services }: { services?: DirectusService[] }) {
                   >
                     <div className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0"
                       style={{ background: '#EFF6FF' }}>
-                      <Icon className="w-4 h-4" style={{ color: '#2563EB' }} aria-hidden="true" />
+                      <span style={{ color: '#2563EB' }} aria-hidden="true"><Icon className="w-4 h-4" /></span>
                     </div>
                     <span className="text-sm font-semibold leading-tight flex-1" style={{ color: '#0F172A' }}>
                       {service.title}

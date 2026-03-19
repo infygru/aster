@@ -205,7 +205,7 @@ export default async function ServicesPage() {
                     <ul className="space-y-1.5 mb-5" role="list">
                       {service.features.slice(0, 4).map((f) => (
                         <li key={f} className="flex items-start gap-2 text-xs text-slate-500">
-                          <CheckCircle className="w-3.5 h-3.5 mt-0.5 flex-shrink-0" style={{ color: c.icon }} aria-hidden="true" />
+                          <span style={{ color: c.icon }} aria-hidden="true"><CheckCircle className="w-3.5 h-3.5 mt-0.5 flex-shrink-0" /></span>
                           {f}
                         </li>
                       ))}

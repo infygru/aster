@@ -303,7 +303,7 @@ export default async function AboutPage() {
                 >
                   <div className="w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-5"
                     style={{ background: value.color }}>
-                    <Icon className="w-7 h-7" style={{ color: value.iconColor }} aria-hidden="true" />
+                    <span style={{ color: value.iconColor }} aria-hidden="true"><Icon className="w-7 h-7" /></span>
                   </div>
                   <h3 className="text-lg font-bold text-slate-900 mb-3">{value.title}</h3>
                   <p className="text-slate-500 text-sm leading-relaxed">{value.description}</p>

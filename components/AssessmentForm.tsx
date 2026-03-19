@@ -179,7 +179,7 @@ function PickCard({
       {Icon && (
         <div className={`rounded-xl flex items-center justify-center flex-shrink-0 ${compact ? 'w-9 h-9' : 'w-10 h-10'}`}
           style={{ background: selected ? 'linear-gradient(135deg, #E11D48, #F43F5E)' : '#F3F4F6' }}>
-          <Icon className={compact ? 'w-4 h-4' : 'w-4.5 h-4.5'} style={{ color: selected ? '#fff' : '#9CA3AF' }} />
+          <span style={{ color: selected ? '#fff' : '#9CA3AF' }}><Icon className={compact ? 'w-4 h-4' : 'w-4.5 h-4.5'} /></span>
         </div>
       )}
       <div className="flex-1 min-w-0">
@@ -514,7 +514,7 @@ export function AssessmentForm() {
                           }}>
                           <div className="w-10 h-10 rounded-xl flex items-center justify-center"
                             style={{ background: sel ? 'linear-gradient(135deg, #E11D48, #F43F5E)' : '#F3F4F6' }}>
-                            <Icon className="w-4 h-4" style={{ color: sel ? '#fff' : '#9CA3AF' }} />
+                            <span style={{ color: sel ? '#fff' : '#9CA3AF' }}><Icon className="w-4 h-4" /></span>
                           </div>
                           <span className="text-xs font-semibold leading-tight" style={{ color: sel ? '#92400E' : '#374151' }}>{value}</span>
                         </button>

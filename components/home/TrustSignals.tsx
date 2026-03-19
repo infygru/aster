@@ -108,7 +108,7 @@ export function TrustSignals() {
                       <span className="text-[10px] font-black tracking-wider" style={{ color: '#2563EB' }}>{f.num}</span>
                       <div className="w-10 h-10 rounded-xl flex items-center justify-center"
                         style={{ background: '#EFF6FF' }}>
-                        <f.icon className="w-4.5 h-4.5 w-[18px] h-[18px]" style={{ color: '#2563EB' }} aria-hidden="true" />
+                        <span style={{ color: '#2563EB' }} aria-hidden="true"><f.icon className="w-4.5 h-4.5 w-[18px] h-[18px]" /></span>
                       </div>
                     </div>
                     {/* Text */}

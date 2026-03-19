@@ -47,7 +47,7 @@ export function HowItWorks() {
                 <div className="relative mb-6 z-10">
                   <div className="w-[4.5rem] h-[4.5rem] rounded-2xl flex items-center justify-center bg-white"
                     style={{ border: '1.5px solid #BFDBFE', boxShadow: '0 4px 16px rgba(37,99,235,0.12)' }}>
-                    <step.icon className="w-7 h-7" style={{ color: '#2563EB' }} />
+                    <span style={{ color: '#2563EB' }}><step.icon className="w-7 h-7" /></span>
                   </div>
                   <span className="absolute -top-2 -right-2 w-6 h-6 rounded-full text-[10px] font-black flex items-center justify-center text-white"
                     style={{ background: 'linear-gradient(135deg, #2563EB, #1D4ED8)' }}>
