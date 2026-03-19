@@ -15,7 +15,6 @@ export async function Hero() {
 
   const phone     = settings?.phone_display || '01753 000000'
   const phoneHref = `tel:${settings?.phone || '+441753000000'}`
-  const cqcId     = settings?.cqc_provider_id || '1-20633610286'
   const heroImage = settings?.hero_image
     ? getAssetUrl(settings.hero_image, { width: '1200', height: '900', fit: 'cover', quality: '88' })
     : null
@@ -43,13 +42,10 @@ export async function Hero() {
             sizes="52vw"
           />
         ) : (
-          /* Fallback decorative gradient when no image set */
           <div className="absolute inset-0"
             style={{ background: 'linear-gradient(135deg, rgba(37,99,235,0.15) 0%, rgba(217,119,6,0.08) 100%)' }} />
         )}
-        {/* Left-edge fade blending image into dark bg */}
         <div className="absolute inset-y-0 left-0 w-48 bg-gradient-to-r from-[#0F172A] to-transparent" />
-        {/* Bottom scrim */}
         <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[#0F172A]/70 to-transparent" />
       </div>
 
@@ -92,8 +88,7 @@ export async function Hero() {
           <div className="flex flex-col sm:flex-row gap-3 mb-12">
             <Link
               href="/assessment"
-              className="group inline-flex items-center justify-center gap-2 font-bold py-4 px-8 rounded-2xl text-white text-sm transition-all duration-200 hover:opacity-90 hover:scale-[1.02]"
-              style={{ background: 'linear-gradient(135deg, #1D4ED8, #2563EB)', boxShadow: '0 4px 24px rgba(37,99,235,0.45)' }}
+              className="group inline-flex items-center justify-center gap-2 font-bold py-4 px-8 rounded-2xl text-sm transition-all duration-200 btn-assessment"
             >
               Book Free Assessment
               <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
@@ -125,11 +120,6 @@ export async function Hero() {
               </span>
             ))}
           </div>
-
-          {/* CQC ID */}
-          <p className="mt-6 text-xs" style={{ color: '#475569' }}>
-            CQC Provider ID: <span style={{ color: '#64748B' }}>{cqcId}</span>
-          </p>
         </div>
       </div>
 

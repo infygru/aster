@@ -127,8 +127,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
 
             <div className="flex flex-col sm:flex-row gap-3">
               <Link href="/assessment"
-                className="inline-flex items-center justify-center gap-2 font-bold py-4 px-8 rounded-2xl text-white text-sm transition-all hover:scale-[1.02]"
-                style={{ background: 'linear-gradient(135deg, #1D4ED8, #2563EB)', boxShadow: '0 4px 24px rgba(37,99,235,0.40)' }}>
+                className="inline-flex items-center justify-center gap-2 font-bold py-4 px-8 rounded-2xl text-white text-sm transition-all hover:scale-[1.02] btn-assessment">
                 Book Free Assessment
                 <ArrowRight className="w-4 h-4" />
               </Link>

@@ -3,7 +3,6 @@ import Link from 'next/link'
 import { ArrowRight, Heart, Users, User, Brain, HeartHandshake, Accessibility, Eye, CheckCircle } from 'lucide-react'
 import { ScrollReveal } from '@/components/ScrollReveal'
 
-/* ── Icon map ─────────────────────────────────────── */
 const iconMap: Record<string, React.ComponentType<{ className?: string; 'aria-hidden'?: boolean | 'true' | 'false' }>> = {
   heart:             Heart,
   users:             Users,
@@ -15,7 +14,6 @@ const iconMap: Record<string, React.ComponentType<{ className?: string; 'aria-hi
   pill:              Heart,
 }
 
-/* ── Fallback data ────────────────────────────────── */
 const fallbackServices: DirectusService[] = [
   { id:'1', status:'published', sort:1, title:'Personal Care',          slug:'personal-care',          description:'Dignified support with bathing, dressing, grooming and daily routines — tailored to each individual.',                            icon:'heart',           color:'teal',    features:['Bathing & hygiene','Dressing & grooming','Meal preparation','Morning & evening routines'] },
   { id:'2', status:'published', sort:2, title:'Adults Over 65',         slug:'adults-over-65',         description:'Specialist support helping older adults live independently, safely and comfortably at home.',                                    icon:'users',           color:'sky',     features:['Daily living support','Health monitoring','Companionship','Social engagement'] },
@@ -26,7 +24,6 @@ const fallbackServices: DirectusService[] = [
   { id:'7', status:'published', sort:7, title:'Sensory Impairments',    slug:'sensory-impairments',    description:'Specialist care for clients with visual or hearing impairments to promote safe independent living.',                            icon:'eye',             color:'emerald', features:['Communication support','Safe navigation','Assistive technology','Independence promotion'] },
 ]
 
-/* ── Featured card (first service — blue gradient) ─ */
 function FeaturedCard({ service, num }: { service: DirectusService; num: string }) {
   const Icon = iconMap[service.icon || 'heart'] || Heart
   return (
@@ -40,7 +37,6 @@ function FeaturedCard({ service, num }: { service: DirectusService; num: string 
       }}
       aria-label={`Learn about ${service.title}`}
     >
-      {/* Background texture */}
       <div className="absolute inset-0 opacity-[0.04] pointer-events-none"
         style={{ backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)', backgroundSize: '24px 24px' }} />
 
@@ -72,7 +68,6 @@ function FeaturedCard({ service, num }: { service: DirectusService; num: string 
   )
 }
 
-/* ── Standard card ────────────────────────────────── */
 function StandardCard({ service, num }: { service: DirectusService; num: string }) {
   const Icon = iconMap[service.icon || 'heart'] || Heart
   return (
@@ -102,7 +97,6 @@ function StandardCard({ service, num }: { service: DirectusService; num: string 
   )
 }
 
-/* ── Main component ───────────────────────────────── */
 export function ServiceGrid({ services }: { services?: DirectusService[] }) {
   const list = services && services.length > 0 ? services : fallbackServices
   const [featured, ...rest] = list
@@ -111,7 +105,6 @@ export function ServiceGrid({ services }: { services?: DirectusService[] }) {
     <section className="section-padding" style={{ background: '#F8FAFC' }} aria-labelledby="services-heading">
       <div className="container-custom">
 
-        {/* Section header — 2-column editorial */}
         <ScrollReveal animation="up">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
             <div>
@@ -129,24 +122,19 @@ export function ServiceGrid({ services }: { services?: DirectusService[] }) {
           </div>
         </ScrollReveal>
 
-        {/* ── Bento grid ── */}
         <div className="grid lg:grid-cols-3 gap-5">
-
-          {/* Featured — full left column on desktop */}
           <div className="lg:row-span-2">
             <ScrollReveal animation="left">
               <FeaturedCard service={featured} num="01" />
             </ScrollReveal>
           </div>
 
-          {/* Services 2 & 3 — top-right 2 cols */}
           {rest.slice(0, 2).map((service, i) => (
             <ScrollReveal key={service.id} animation="up" delay={((i + 1) as 0 | 1 | 2 | 3 | 4)}>
               <StandardCard service={service} num={String(i + 2).padStart(2, '0')} />
             </ScrollReveal>
           ))}
 
-          {/* Services 4 & 5 — bottom-right 2 cols */}
           {rest.slice(2, 4).map((service, i) => (
             <ScrollReveal key={service.id} animation="up" delay={((i + 1) as 0 | 1 | 2 | 3 | 4)}>
               <StandardCard service={service} num={String(i + 4).padStart(2, '0')} />
@@ -154,7 +142,6 @@ export function ServiceGrid({ services }: { services?: DirectusService[] }) {
           ))}
         </div>
 
-        {/* ── Remaining services (5+) as compact icon-list row ── */}
         {rest.length > 4 && (
           <div className="mt-5 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
             {rest.slice(4).map((service, i) => {
@@ -182,12 +169,10 @@ export function ServiceGrid({ services }: { services?: DirectusService[] }) {
           </div>
         )}
 
-        {/* CTA */}
         <div className="text-center mt-12">
           <Link
             href="/services"
-            className="inline-flex items-center gap-2 font-bold px-8 py-4 rounded-2xl text-white transition-all duration-200 hover:scale-[1.02] group"
-            style={{ background: 'linear-gradient(135deg, #1D4ED8, #2563EB)', boxShadow: '0 4px 20px rgba(37,99,235,0.35)' }}
+            className="inline-flex items-center gap-2 font-bold px-8 py-4 rounded-2xl text-white transition-all duration-200 hover:scale-[1.02] group btn-assessment"
           >
             View All Services
             <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />

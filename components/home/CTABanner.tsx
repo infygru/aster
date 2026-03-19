@@ -9,19 +9,18 @@ export async function CTABanner() {
 
   return (
     <section
-      className="relative overflow-hidden py-16 md:py-20"
-      style={{ background: 'linear-gradient(135deg, #1E3A8A 0%, #1D4ED8 100%)' }}
+      className="cta-banner-bg relative overflow-hidden py-16 md:py-20"
       aria-labelledby="cta-heading"
     >
       {/* Subtle pattern */}
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
-        <div className="absolute -top-24 -right-24 w-80 h-80 rounded-full opacity-20"
-          style={{ background: 'radial-gradient(circle, #DBEAFE, transparent)' }} />
-        <div className="absolute -bottom-24 -left-24 w-72 h-72 rounded-full opacity-15"
-          style={{ background: 'radial-gradient(circle, #FEF3C7, transparent)' }} />
-        <div className="absolute inset-0 opacity-[0.04]"
+        <div className="absolute -top-24 -right-24 w-96 h-96 rounded-full opacity-10"
+          style={{ background: 'radial-gradient(circle, #F59E0B, transparent)' }} />
+        <div className="absolute -bottom-24 -left-24 w-80 h-80 rounded-full opacity-10"
+          style={{ background: 'radial-gradient(circle, #0D9488, transparent)' }} />
+        <div className="absolute inset-0 opacity-[0.03]"
           style={{
-            backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.8) 1px, transparent 1px)',
+            backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.9) 1px, transparent 1px)',
             backgroundSize: '28px 28px',
           }} />
       </div>
@@ -30,7 +29,7 @@ export async function CTABanner() {
         <h2 id="cta-heading" className="text-3xl md:text-4xl font-bold text-balance mb-4 text-white">
           Ready to Discuss Your Care Needs?
         </h2>
-        <p className="text-lg mb-10 max-w-xl mx-auto leading-relaxed text-blue-50" style={{ opacity: 0.9 }}>
+        <p className="text-lg mb-10 max-w-xl mx-auto leading-relaxed text-slate-200" style={{ opacity: 0.9 }}>
           Book a free, no-obligation care assessment. Our team will work with you to create the perfect care plan.
         </p>
         <div className="flex flex-col sm:flex-row gap-3 justify-center">

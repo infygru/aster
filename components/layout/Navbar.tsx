@@ -5,7 +5,6 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { Menu, X } from 'lucide-react'
-import { CQCBadge } from '@/components/CQCBadge'
 import type { DirectusSiteSettings } from '@/lib/directus'
 import { getAssetUrl } from '@/lib/utils'
 
@@ -68,19 +67,14 @@ export function Navbar({ settings }: NavbarProps) {
                 priority
               />
             ) : (
-              <>
-                <div
-                  className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0"
-                  style={{ background: 'linear-gradient(135deg, #1D4ED8, #2563EB)' }}
-                  aria-hidden="true"
-                >
-                  <span className="text-white font-bold text-sm">A</span>
-                </div>
-                <div className="hidden sm:block">
-                  <p className="font-bold text-slate-900 text-sm leading-tight">Aster Homecare</p>
-                  <p className="text-[10px] text-blue-600 font-semibold leading-tight uppercase tracking-wide">UK Ltd</p>
-                </div>
-              </>
+              <Image
+                src="/logo.jpg"
+                alt={siteName}
+                width={200}
+                height={56}
+                className="h-14 w-auto object-contain"
+                priority
+              />
             )}
           </Link>
 

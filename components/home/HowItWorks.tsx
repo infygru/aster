@@ -37,7 +37,6 @@ export function HowItWorks() {
         </ScrollReveal>
 
         <div className="grid md:grid-cols-3 gap-6 md:gap-10 relative">
-          {/* Connector line */}
           <div className="hidden md:block absolute top-9 left-[calc(16.5%+1.5rem)] right-[calc(16.5%+1.5rem)] h-px"
             style={{ background: 'linear-gradient(90deg, #BFDBFE, #2563EB, #BFDBFE)' }} aria-hidden="true" />
 
@@ -64,8 +63,7 @@ export function HowItWorks() {
         <div className="text-center mt-14">
           <Link
             href="/assessment"
-            className="inline-flex items-center gap-2 font-bold py-4 px-8 rounded-2xl text-white text-sm transition-all duration-200 hover:scale-[1.02] group"
-            style={{ background: 'linear-gradient(135deg, #2563EB, #1D4ED8)', boxShadow: '0 4px 20px rgba(37,99,235,0.40)' }}
+            className="inline-flex items-center gap-2 font-bold py-4 px-8 rounded-2xl text-sm transition-all duration-200 group btn-assessment"
           >
             Book Your Free Assessment
             <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />

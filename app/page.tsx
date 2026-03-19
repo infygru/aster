@@ -4,7 +4,6 @@ import { ServiceGrid } from '@/components/home/ServiceGrid'
 import { HowItWorks } from '@/components/home/HowItWorks'
 import { StatsSection } from '@/components/home/StatsSection'
 import { Testimonials } from '@/components/home/Testimonials'
-import { TeamPreview } from '@/components/home/TeamPreview'
 import { BlogPreview } from '@/components/home/BlogPreview'
 import { CTABanner } from '@/components/home/CTABanner'
 import { getServices } from '@/lib/directus'
@@ -20,7 +19,6 @@ export default async function HomePage() {
       <HowItWorks />
       <StatsSection />
       <Testimonials />
-      <TeamPreview />
       <BlogPreview />
       <CTABanner />
     </>

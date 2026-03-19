@@ -137,8 +137,8 @@ const STEPS = [
 ]
 
 // ─── Rose/coral theme tokens ──────────────────────────────────────────────────
-// Primary:  #E11D48 (rose-600) / #F43F5E (rose-500) / #BE123C (rose-700)
-// Light:    #FFF1F2 (rose-50)  / #FECDD3 (rose-200)  / #FDA4AF (rose-300)
+// Primary:  #2563EB (blue-600) / #3B82F6 (blue-500) / #1D4ED8 (rose-700)
+// Light:    #EFF6FF (blue-50)  / #BFDBFE (blue-200)  / #93C5FD (blue-400)
 // Selected: amber border #FBBF24 + warm cream bg (kept)
 
 // ─── Reusable components ──────────────────────────────────────────────────────
@@ -155,7 +155,7 @@ function TextInput({ id, error, ...rest }: React.InputHTMLAttributes<HTMLInputEl
   return (
     <>
       <input id={id} {...rest}
-        className={`w-full rounded-xl border px-4 py-3 text-sm text-gray-900 outline-none transition-all focus:ring-2 focus:ring-rose-400 focus:border-rose-400 placeholder:text-gray-300 ${error ? 'border-red-300 bg-red-50' : 'border-gray-200 bg-white hover:border-rose-300'}`}
+        className={`w-full rounded-xl border px-4 py-3 text-sm text-gray-900 outline-none transition-all focus:ring-2 focus:ring-blue-500 focus:border-blue-500 placeholder:text-gray-300 ${error ? 'border-red-300 bg-red-50' : 'border-gray-200 bg-white hover:border-blue-400'}`}
       />
       {error && <p className="text-xs text-red-500 mt-1">{error}</p>}
     </>
@@ -178,7 +178,7 @@ function PickCard({
       }}>
       {Icon && (
         <div className={`rounded-xl flex items-center justify-center flex-shrink-0 ${compact ? 'w-9 h-9' : 'w-10 h-10'}`}
-          style={{ background: selected ? 'linear-gradient(135deg, #E11D48, #F43F5E)' : '#F3F4F6' }}>
+          style={{ background: selected ? 'linear-gradient(135deg, #2563EB, #3B82F6)' : '#F3F4F6' }}>
           <span style={{ color: selected ? '#fff' : '#9CA3AF' }}><Icon className={compact ? 'w-4 h-4' : 'w-4.5 h-4.5'} /></span>
         </div>
       )}
@@ -189,7 +189,7 @@ function PickCard({
       </div>
       {selected && (
         <div className="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 ml-1"
-          style={{ background: 'linear-gradient(135deg, #E11D48, #F43F5E)' }}>
+          style={{ background: 'linear-gradient(135deg, #2563EB, #3B82F6)' }}>
           <CheckCircle className="w-3 h-3 text-white" />
         </div>
       )}
@@ -259,9 +259,9 @@ export function AssessmentForm() {
     return (
       <div className="min-h-screen flex items-center justify-center px-4 bg-white">
         <div className="max-w-lg w-full bg-white rounded-3xl shadow-xl p-10 text-center"
-          style={{ border: '1px solid #FECDD3' }}>
+          style={{ border: '1px solid #BFDBFE' }}>
           <div className="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6"
-            style={{ background: 'linear-gradient(135deg, #E11D48, #F43F5E)', boxShadow: '0 0 0 10px rgba(225,29,72,0.08)' }}>
+            style={{ background: 'linear-gradient(135deg, #2563EB, #3B82F6)', boxShadow: '0 0 0 10px rgba(37,99,235,0.08)' }}>
             <CheckCircle className="w-10 h-10 text-white" />
           </div>
 
@@ -280,8 +280,8 @@ export function AssessmentForm() {
           </p>
           <p className="text-xs text-gray-300 mb-8">Reference: {Date.now().toString(36).toUpperCase()}</p>
 
-          <div className="rounded-2xl p-5 mb-6 text-left" style={{ background: '#FFF1F2', border: '1px solid #FECDD3' }}>
-            <p className="text-xs text-rose-600 font-bold uppercase tracking-wider mb-4">What happens next</p>
+          <div className="rounded-2xl p-5 mb-6 text-left" style={{ background: '#EFF6FF', border: '1px solid #BFDBFE' }}>
+            <p className="text-xs text-blue-600 font-bold uppercase tracking-wider mb-4">What happens next</p>
             {[
               'A coordinator calls to confirm your assessment date',
               'We visit you at home — free, zero obligation',
@@ -289,7 +289,7 @@ export function AssessmentForm() {
             ].map((t, i) => (
               <div key={i} className="flex items-start gap-3 mb-3 last:mb-0">
                 <div className="w-6 h-6 rounded-full flex items-center justify-center text-[11px] font-black text-white flex-shrink-0 mt-0.5"
-                  style={{ background: i % 2 === 0 ? 'linear-gradient(135deg, #E11D48, #F43F5E)' : '#FBBF24' }}>
+                  style={{ background: i % 2 === 0 ? 'linear-gradient(135deg, #2563EB, #3B82F6)' : '#FBBF24' }}>
                   {i + 1}
                 </div>
                 <p className="text-sm text-gray-600">{t}</p>
@@ -299,7 +299,7 @@ export function AssessmentForm() {
 
           <p className="text-sm text-gray-400">
             Need to speak now?{' '}
-            <a href="tel:+441753000000" className="text-rose-600 font-semibold hover:underline">Call 01753 000000</a>
+            <a href="tel:+441753000000" className="text-blue-600 font-semibold hover:underline">Call 01753 000000</a>
           </p>
         </div>
       </div>
@@ -313,32 +313,18 @@ export function AssessmentForm() {
     <div className="min-h-screen bg-white">
 
       {/* ── TOP NAV ── */}
-      <header className="sticky top-0 z-20 bg-white/95 backdrop-blur-md border-b border-rose-100">
-        <div className="max-w-3xl mx-auto px-5 py-3 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2.5">
-            <div className="w-8 h-8 rounded-xl flex items-center justify-center"
-              style={{ background: 'linear-gradient(135deg, #E11D48, #F43F5E)' }}>
-              <span className="text-white font-black text-sm">A</span>
-            </div>
-            <div>
-              <p className="font-bold text-sm leading-none" style={{ color: '#0F172A' }}>Aster Homecare</p>
-              <p className="text-rose-400 text-[10px] leading-none mt-0.5 uppercase tracking-wide">UK Ltd</p>
-            </div>
+      <header className="sticky top-0 z-20 bg-white/95 backdrop-blur-md border-b border-blue-100">
+        <div className="max-w-3xl mx-auto px-4 py-3 flex items-center justify-between">
+          <Link href="/" className="text-gray-400 hover:text-gray-600 transition-colors text-sm font-semibold flex items-center gap-1.5">
+            <ArrowLeft className="w-4 h-4" /> Cancel
           </Link>
-
-          <div className="flex items-center gap-4">
-            <div className="hidden sm:flex items-center gap-2">
-              <ShieldCheck className="w-3.5 h-3.5 text-rose-400" />
-              <span className="text-xs text-gray-400">CQC Registered</span>
-            </div>
-            <span className="text-xs font-semibold text-gray-400">Step {step + 1} of {STEPS.length}</span>
-          </div>
+          <span className="text-xs font-bold text-blue-600 bg-blue-50 px-3 py-1.5 rounded-full border border-blue-100">Step {step + 1} of {STEPS.length}</span>
         </div>
 
         {/* Progress bar */}
-        <div className="w-full h-1.5 bg-rose-50">
+        <div className="w-full h-1.5 bg-blue-50">
           <div className="h-full transition-all duration-500 ease-out rounded-full"
-            style={{ width: `${progressPct}%`, background: 'linear-gradient(90deg, #E11D48, #F97316, #F59E0B)' }} />
+            style={{ width: `${progressPct}%`, background: 'linear-gradient(90deg, #93C5FD, #2563EB)' }} />
         </div>
       </header>
 
@@ -351,17 +337,17 @@ export function AssessmentForm() {
             <div key={i} className="flex items-center gap-2">
               <div className="flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-bold transition-all"
                 style={{
-                  background: i < step ? '#FFF1F2' : i === step ? 'linear-gradient(135deg, #E11D48, #F43F5E)' : '#F3F4F6',
-                  color: i < step ? '#E11D48' : i === step ? '#fff' : '#9CA3AF',
+                  background: i < step ? '#EFF6FF' : i === step ? 'linear-gradient(135deg, #2563EB, #3B82F6)' : '#F3F4F6',
+                  color: i < step ? '#2563EB' : i === step ? '#fff' : '#9CA3AF',
                 }}>
                 <span className="w-4 h-4 rounded-full flex items-center justify-center text-[10px]"
-                  style={{ background: i < step ? '#E11D48' : i === step ? 'rgba(255,255,255,0.25)' : '#E5E7EB', color: i < step ? '#fff' : 'inherit' }}>
+                  style={{ background: i < step ? '#2563EB' : i === step ? 'rgba(255,255,255,0.25)' : '#E5E7EB', color: i < step ? '#fff' : 'inherit' }}>
                   {i < step ? '✓' : i + 1}
                 </span>
                 <span className="hidden sm:inline">{s.label}</span>
               </div>
               {i < STEPS.length - 1 && (
-                <div className="w-6 h-0.5 rounded" style={{ background: i < step ? '#FDA4AF' : '#E5E7EB' }} />
+                <div className="w-6 h-0.5 rounded" style={{ background: i < step ? '#93C5FD' : '#E5E7EB' }} />
               )}
             </div>
           ))}
@@ -376,7 +362,7 @@ export function AssessmentForm() {
         </div>
 
         {/* Form card */}
-        <div className="bg-white rounded-3xl shadow-sm p-6 sm:p-8 md:p-10" style={{ border: '1px solid #FECDD3' }}>
+        <div className="bg-white rounded-3xl shadow-sm p-6 sm:p-8 md:p-10" style={{ border: '1px solid #BFDBFE' }}>
           <form onSubmit={handleSubmit(onSubmit)} noValidate>
 
             {/* ── STEP 1 ── */}
@@ -393,7 +379,7 @@ export function AssessmentForm() {
                   </div>
                   <FieldError msg={errors.care_for?.message} />
                   {all.care_for && all.care_for !== 'myself' && (
-                    <div className="grid sm:grid-cols-2 gap-3 mt-4 p-4 rounded-2xl bg-rose-50 border border-rose-100">
+                    <div className="grid sm:grid-cols-2 gap-3 mt-4 p-4 rounded-2xl bg-blue-50 border border-blue-100">
                       <div>
                         <FieldLabel htmlFor="person_name">Their name</FieldLabel>
                         <TextInput id="person_name" {...register('person_name')} placeholder="Full name" error={errors.person_name?.message} />
@@ -513,7 +499,7 @@ export function AssessmentForm() {
                             background: sel ? 'linear-gradient(135deg, #FFFBEB, #FEF3C7)' : '#FAFAFA',
                           }}>
                           <div className="w-10 h-10 rounded-xl flex items-center justify-center"
-                            style={{ background: sel ? 'linear-gradient(135deg, #E11D48, #F43F5E)' : '#F3F4F6' }}>
+                            style={{ background: sel ? 'linear-gradient(135deg, #2563EB, #3B82F6)' : '#F3F4F6' }}>
                             <span style={{ color: sel ? '#fff' : '#9CA3AF' }}><Icon className="w-4 h-4" /></span>
                           </div>
                           <span className="text-xs font-semibold leading-tight" style={{ color: sel ? '#92400E' : '#374151' }}>{value}</span>
@@ -545,9 +531,9 @@ export function AssessmentForm() {
                         <button key={value} type="button" onClick={() => toggleArray('medical_conditions', value)}
                           className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full border text-xs font-semibold transition-all duration-150"
                           style={{
-                            borderColor: sel ? '#E11D48' : '#E5E7EB',
-                            background: sel ? '#FFF1F2' : '#F9FAFB',
-                            color: sel ? '#BE123C' : '#6B7280',
+                            borderColor: sel ? '#2563EB' : '#E5E7EB',
+                            background: sel ? '#EFF6FF' : '#F9FAFB',
+                            color: sel ? '#1D4ED8' : '#6B7280',
                           }}>
                           <Icon className="w-3 h-3" />
                           {value}
@@ -596,7 +582,7 @@ export function AssessmentForm() {
                 <div>
                   <FieldLabel htmlFor="how_heard">How did you hear about us? <span className="text-gray-300 font-normal">(optional)</span></FieldLabel>
                   <select id="how_heard" {...register('how_heard')}
-                    className="w-full rounded-xl border border-gray-200 px-4 py-3 text-sm text-gray-900 outline-none bg-white transition-all focus:ring-2 focus:ring-rose-400 hover:border-rose-300">
+                    className="w-full rounded-xl border border-gray-200 px-4 py-3 text-sm text-gray-900 outline-none bg-white transition-all focus:ring-2 focus:ring-blue-500 hover:border-blue-400">
                     <option value="">Select…</option>
                     <option value="google">Google Search</option>
                     <option value="social">Social media</option>
@@ -610,18 +596,18 @@ export function AssessmentForm() {
                   <FieldLabel htmlFor="additional_notes">Anything else we should know? <span className="text-gray-300 font-normal">(optional)</span></FieldLabel>
                   <textarea id="additional_notes" {...register('additional_notes')} rows={4}
                     placeholder="Any specific requirements, concerns, or information that will help us prepare…"
-                    className="w-full rounded-xl border border-gray-200 px-4 py-3 text-sm text-gray-900 outline-none resize-none transition-all focus:ring-2 focus:ring-rose-400 placeholder:text-gray-300 hover:border-rose-300" />
+                    className="w-full rounded-xl border border-gray-200 px-4 py-3 text-sm text-gray-900 outline-none resize-none transition-all focus:ring-2 focus:ring-blue-500 placeholder:text-gray-300 hover:border-blue-400" />
                 </div>
 
                 {/* Consent */}
-                <div className="rounded-2xl p-5" style={{ background: '#FFF1F2', border: '1px solid #FECDD3' }}>
+                <div className="rounded-2xl p-5" style={{ background: '#EFF6FF', border: '1px solid #BFDBFE' }}>
                   <label className="flex items-start gap-3 cursor-pointer">
                     <input type="checkbox" {...register('consent')}
-                      className="mt-0.5 w-4 h-4 rounded border-gray-300 text-rose-600 focus:ring-rose-400 flex-shrink-0" />
+                      className="mt-0.5 w-4 h-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500 flex-shrink-0" />
                     <span className="text-xs text-gray-600 leading-relaxed">
                       I agree to Aster Homecare UK processing my personal and health-related information to arrange a care assessment,
                       in accordance with the{' '}
-                      <a href="/privacy" className="text-rose-600 underline hover:text-rose-800">Privacy Policy</a>.
+                      <a href="/privacy" className="text-blue-600 underline hover:text-rose-800">Privacy Policy</a>.
                       I understand my data will be kept securely and I can withdraw consent at any time by contacting the office.
                     </span>
                   </label>
@@ -638,7 +624,7 @@ export function AssessmentForm() {
             <div className="flex items-center justify-between mt-10 pt-6 border-t border-gray-100">
               {step > 0 ? (
                 <button type="button" onClick={() => setStep(s => s - 1)}
-                  className="inline-flex items-center gap-2 text-sm font-semibold text-gray-400 hover:text-rose-600 transition-colors py-3 px-4 rounded-xl hover:bg-rose-50">
+                  className="inline-flex items-center gap-2 text-sm font-semibold text-gray-400 hover:text-blue-600 transition-colors py-3 px-4 rounded-xl hover:bg-blue-50">
                   <ArrowLeft className="w-4 h-4" />
                   Back
                 </button>
@@ -647,14 +633,14 @@ export function AssessmentForm() {
               {step < STEPS.length - 1 ? (
                 <button type="button" onClick={next}
                   className="inline-flex items-center gap-2 text-sm font-bold text-white px-8 py-3.5 rounded-2xl transition-all hover:scale-[1.02]"
-                  style={{ background: 'linear-gradient(135deg, #BE123C, #E11D48, #F43F5E)', boxShadow: '0 4px 18px rgba(225,29,72,0.35)' }}>
+                  style={{ background: 'linear-gradient(135deg, #1D4ED8, #2563EB, #3B82F6)', boxShadow: '0 4px 18px rgba(37,99,235,0.35)' }}>
                   Continue
                   <ArrowRight className="w-4 h-4" />
                 </button>
               ) : (
                 <button type="submit" disabled={loading}
                   className="inline-flex items-center gap-2 text-sm font-bold text-white px-8 py-3.5 rounded-2xl transition-all hover:scale-[1.02] disabled:opacity-60 disabled:cursor-not-allowed"
-                  style={{ background: 'linear-gradient(135deg, #BE123C, #E11D48, #F43F5E)', boxShadow: '0 4px 18px rgba(225,29,72,0.35)' }}>
+                  style={{ background: 'linear-gradient(135deg, #1D4ED8, #2563EB, #3B82F6)', boxShadow: '0 4px 18px rgba(37,99,235,0.35)' }}>
                   {loading
                     ? <><Loader2 className="w-4 h-4 animate-spin" />Submitting…</>
                     : <>Submit Assessment Request <ArrowRight className="w-4 h-4" /></>}
@@ -667,13 +653,13 @@ export function AssessmentForm() {
         {/* Trust footer */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8 text-xs text-gray-400">
           <div className="flex items-center gap-1.5">
-            <ShieldCheck className="w-3.5 h-3.5 text-rose-400" />
+            <ShieldCheck className="w-3.5 h-3.5 text-blue-500" />
             <span>CQC Registered Provider</span>
           </div>
           <span className="hidden sm:block opacity-30">·</span>
           <div className="flex items-center gap-1.5">
-            <Phone className="w-3.5 h-3.5 text-rose-400" />
-            <a href="tel:+441753000000" className="hover:text-rose-600 transition-colors">01753 000000</a>
+            <Phone className="w-3.5 h-3.5 text-blue-500" />
+            <a href="tel:+441753000000" className="hover:text-blue-600 transition-colors">01753 000000</a>
           </div>
           <span className="hidden sm:block opacity-30">·</span>
           <span>Free · No obligation · Confidential</span>

@@ -33,8 +33,8 @@ const coreValues = [
     title: 'Excellence',
     description:
       'We continuously invest in staff training and quality improvement to deliver consistently outstanding outcomes.',
-    color: '#FFFBEB',
-    iconColor: '#D97706',
+    color: '#EFF6FF',
+    iconColor: '#2563EB',
   },
   {
     icon: Users,
@@ -60,7 +60,7 @@ function getInitials(name: string): string {
 function TeamCard({ member }: { member: DirectusTeamMember }) {
   return (
     <div className="bg-white rounded-2xl border border-slate-200 overflow-hidden hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
-      <div className="relative h-56 bg-blue-50 overflow-hidden">
+      <div className="relative h-56 bg-amber-50 overflow-hidden">
         {member.photo ? (
           <Image
             src={getAssetUrl(member.photo, { width: '400', height: '300', fit: 'cover' })}
@@ -70,14 +70,14 @@ function TeamCard({ member }: { member: DirectusTeamMember }) {
           />
         ) : (
           <div className="absolute inset-0 flex items-center justify-center"
-            style={{ background: 'linear-gradient(135deg, #1D4ED8, #2563EB)' }}>
+            style={{ background: 'linear-gradient(135deg, #D97706, #F59E0B)' }}>
             <span className="text-white text-4xl font-bold">{getInitials(member.name)}</span>
           </div>
         )}
       </div>
       <div className="p-5">
         <h3 className="text-lg font-bold text-slate-900">{member.name}</h3>
-        <p className="text-blue-600 text-sm font-semibold mb-2">{member.role}</p>
+        <p className="text-amber-600 text-sm font-semibold mb-2">{member.role}</p>
         {member.bio && (
           <p className="text-slate-500 text-sm leading-relaxed line-clamp-3">{member.bio}</p>
         )}
@@ -106,7 +106,7 @@ export default async function AboutPage() {
             style={{ background: 'radial-gradient(circle, #D97706, transparent)' }} />
         </div>
 
-        <div className="relative container-custom py-24 md:py-32">
+        <div className="relative container-custom py-12 md:py-16">
           <div className="max-w-3xl">
             <p className="text-blue-300 font-semibold text-sm uppercase tracking-widest mb-4">
               About Aster Homecare UK
@@ -160,7 +160,7 @@ export default async function AboutPage() {
                 </div>
                 <div>
                   <div className="flex items-center gap-2 mb-2">
-                    <div className="w-1 h-6 bg-amber-500 rounded-full" aria-hidden="true" />
+                    <div className="w-1 h-6 bg-blue-600 rounded-full" aria-hidden="true" />
                     <h3 className="text-lg font-bold text-slate-900">Vision</h3>
                   </div>
                   <p className="text-slate-600 leading-relaxed pl-3">
@@ -185,7 +185,7 @@ export default async function AboutPage() {
                 <div className="w-10 h-10 bg-blue-500/30 rounded-xl flex items-center justify-center">
                   <Shield className="w-5 h-5 text-white" aria-hidden="true" />
                 </div>
-                <h3 className="text-xl font-bold">CQC Registration</h3>
+                <h3 className="text-xl font-bold text-white">CQC Registration</h3>
               </div>
 
               <div className="overflow-x-auto -mx-1"><table className="w-full text-sm min-w-[280px]" aria-label="CQC registration details">
@@ -268,7 +268,7 @@ export default async function AboutPage() {
                 </div>
               </div>
 
-              <div className="mt-4 bg-blue-600 rounded-2xl p-6 text-white">
+              <div className="mt-4 rounded-2xl p-6 text-white" style={{ background: '#2563EB' }}>
                 <MapPin className="w-6 h-6 text-blue-200 mb-3" aria-hidden="true" />
                 <p className="font-bold text-base mb-1">Serving Berkshire Since 2024</p>
                 <p className="text-blue-100 text-sm leading-relaxed">Slough, Windsor, Maidenhead, Bracknell, Reading &amp; Wokingham</p>
@@ -310,55 +310,6 @@ export default async function AboutPage() {
                 </div>
               )
             })}
-          </div>
-        </div>
-      </section>
-
-      {/* 5. Nominated Individual */}
-      <section className="section-padding bg-slate-50" aria-labelledby="ni-heading">
-        <div className="container-custom">
-          <div className="max-w-4xl mx-auto">
-            <div className="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
-              {/* Top accent bar */}
-              <div className="h-2 w-full" style={{ background: 'linear-gradient(90deg, #1D4ED8, #2563EB, #D97706)' }} />
-              <div className="p-8 md:p-10">
-                <div className="flex flex-col md:flex-row gap-8 items-center md:items-start">
-                  <div className="flex-shrink-0">
-                    <div
-                      className="w-28 h-28 rounded-2xl flex items-center justify-center text-white text-3xl font-bold shadow-md"
-                      style={{ background: 'linear-gradient(135deg, #1D4ED8, #2563EB)' }}
-                    >
-                      SS
-                    </div>
-                    <div className="mt-3 text-center">
-                      <span className="inline-block bg-green-100 text-green-700 text-xs font-semibold px-3 py-1 rounded-full">
-                        CQC Verified
-                      </span>
-                    </div>
-                  </div>
-
-                  <div className="flex-1">
-                    <p className="text-blue-600 font-semibold text-sm uppercase tracking-widest mb-1">
-                      Nominated Individual
-                    </p>
-                    <h2 id="ni-heading" className="text-2xl font-bold text-slate-900 mb-4">
-                      Sanjeev Srichandan
-                    </h2>
-                    <p className="text-slate-600 leading-relaxed mb-4">
-                      As the Nominated Individual for Aster Homecare UK Ltd, Sanjeev Srichandan is responsible for supervising the management of regulated activities and ensuring the organisation consistently meets CQC standards. With deep expertise in health and social care compliance, Sanjeev leads our commitment to delivering safe, effective, and compassionate care to every client.
-                    </p>
-                    <div className="flex flex-wrap gap-3">
-                      <span className="bg-blue-50 text-blue-700 text-xs font-semibold px-3 py-1.5 rounded-lg">
-                        CQC Provider ID: 1-20633610286
-                      </span>
-                      <span className="bg-slate-100 text-slate-600 text-xs font-semibold px-3 py-1.5 rounded-lg">
-                        Domiciliary Care Agency
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </section>
@@ -423,7 +374,7 @@ export default async function AboutPage() {
         aria-labelledby="about-cta-heading"
       >
         <div className="container-custom text-center">
-          <h2 id="about-cta-heading" className="text-3xl md:text-4xl font-bold mb-4">
+          <h2 id="about-cta-heading" className="text-3xl md:text-4xl font-bold mb-4 text-white">
             Ready to Discuss Your Care Needs?
           </h2>
           <p className="text-blue-200 text-lg mb-8 max-w-xl mx-auto">

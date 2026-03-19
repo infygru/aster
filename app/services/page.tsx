@@ -3,7 +3,7 @@ import Link from 'next/link'
 import {
   CheckCircle, ArrowRight, Phone,
   Heart, Users, User, Brain, HeartHandshake, Accessibility, Eye,
-  MapPin, Clock, ShieldCheck,
+  MapPin, Clock, ShieldCheck, ChevronDown
 } from 'lucide-react'
 import { getServices, type DirectusService } from '@/lib/directus'
 
@@ -19,7 +19,7 @@ const defaultServices: DirectusService[] = [
     title: 'Personal Care',
     slug: 'personal-care',
     description: 'Dignified, compassionate assistance with daily living activities — tailored entirely to the individual.',
-    icon: 'heart', color: 'blue',
+    icon: 'heart', color: 'amber',
     features: ['Bathing & personal hygiene', 'Dressing & grooming', 'Continence care', 'Morning & evening routines'],
   },
   {
@@ -35,7 +35,7 @@ const defaultServices: DirectusService[] = [
     title: 'Caring for Adults Under 65',
     slug: 'adults-under-65',
     description: 'Person-centred care enabling younger adults with complex needs to lead fulfilling, independent lives.',
-    icon: 'user', color: 'blue',
+    icon: 'user', color: 'amber',
     features: ['Personalised care plans', 'Community integration', 'Skill development', 'Physical support'],
   },
   {
@@ -51,7 +51,7 @@ const defaultServices: DirectusService[] = [
     title: 'Mental Health Support',
     slug: 'mental-health',
     description: 'Empathetic support for people living with mental health conditions, promoting stability and well-being.',
-    icon: 'heart-handshake', color: 'blue',
+    icon: 'heart-handshake', color: 'amber',
     features: ['Emotional support', 'Daily structure', 'Social reintegration', 'Crisis planning'],
   },
   {
@@ -83,6 +83,7 @@ const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
 }
 
 const colorMap: Record<string, { bg: string; icon: string; pill: string }> = {
+  amber: { bg: '#EFF6FF', icon: '#2563EB', pill: '#DBEAFE' },
   blue:  { bg: '#EFF6FF', icon: '#2563EB', pill: '#DBEAFE' },
   gold:  { bg: '#FFFBEB', icon: '#D97706', pill: '#FEF3C7' },
   teal:  { bg: '#F0FDFA', icon: '#0D9488', pill: '#CCFBF1' },
@@ -124,7 +125,7 @@ export default async function ServicesPage() {
             style={{ background: 'radial-gradient(circle, #D97706, transparent)' }} />
         </div>
 
-        <div className="relative container-custom py-24 md:py-32">
+        <div className="relative container-custom py-12 md:py-16">
           <div className="max-w-3xl">
             <p className="text-blue-300 font-semibold text-sm uppercase tracking-widest mb-4">
               Our Services
@@ -176,7 +177,7 @@ export default async function ServicesPage() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {services.map((service) => {
               const Icon = iconMap[service.icon || 'heart'] || Heart
-              const c = colorMap[service.color || 'blue'] || colorMap.blue
+              const c = colorMap[service.color || 'amber'] || colorMap.amber
               return (
                 <article
                   key={service.id}
@@ -336,6 +337,58 @@ export default async function ServicesPage() {
         </div>
       </section>
 
+      {/* FAQ Section */}
+      <section className="section-padding bg-slate-50" aria-labelledby="faq-heading">
+        <div className="container-custom max-w-3xl">
+          <div className="text-center mb-12">
+            <p className="text-blue-600 font-semibold text-sm uppercase tracking-widest mb-3">Questions & Answers</p>
+            <h2 id="faq-heading" className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+              Frequently Asked Questions
+            </h2>
+          </div>
+          <div className="space-y-4">
+            {[
+              {
+                q: 'How does the free care assessment process work?',
+                a: 'Our process begins with a free, no-obligation home visit from an experienced Care Coordinator. We take the time to understand your physical, emotional, and social needs, as well as your daily routines and preferences. We also conduct a full environmental risk assessment. Following this visit, we develop a highly personalised, written care plan tailored entirely to you.',
+              },
+              {
+                q: 'How are your carers trained and vetted?',
+                a: 'Safety and quality are our top priorities. Every carer undergoes a rigorous recruitment process including comprehensive background checks, multiple references, and an Enhanced Disclosure and Barring Service (DBS) check. Once hired, they complete an intensive induction aligned with the Care Certificate standards, followed by continuous specialist training in areas like Dementia Care, First Aid, and Safeguarding.',
+              },
+              {
+                q: 'What happens if my assigned carer is sick or on holiday?',
+                a: 'We pride ourselves on reliability and continuity of care. You will be assigned a small, dedicated team of familiar carers rather than just one individual. In the event of illness or scheduled leave, another fully briefed member of your dedicated care team will step in, ensuring zero interruption to your service and that you are always cared for by someone who knows your preferences.',
+              },
+              {
+                q: 'Can my care plan be changed if my needs increase or decrease?',
+                a: 'Absolutely. We understand that care needs fluctuate due to health changes, recovery, or advancing age. Your care plan is a "living document". We conduct regular reviews, and you can request an immediate review at any time to adjust your level of support—whether that means increasing visiting hours, adding specialist care, or scaling back as you regain independence.',
+              },
+              {
+                q: 'How do you ensure transparency with family members?',
+                a: 'We believe in working in partnership with families. With your consent, we keep designated family members fully informed. Our carers maintain detailed daily logs regarding your care, nutrition, and well-being, ensuring peace of mind and full transparency about every single visit.',
+              },
+              {
+                q: 'Is Aster Homecare fully regulated?',
+                a: 'Yes, Aster Homecare UK is fully registered with and regulated by the Care Quality Commission (CQC), the independent regulator of health and social care in England. We adhere strictly to the Health and Social Care Act 2008, ensuring we meet rigorous national standards for safety, effectiveness, and responsive leadership.',
+              },
+            ].map((faq, i) => (
+              <details key={i} className="group bg-white border border-slate-200 rounded-2xl open:shadow-md transition-all">
+                <summary className="flex items-center justify-between p-6 font-bold text-slate-900 cursor-pointer list-none">
+                  {faq.q}
+                  <span className="transition group-open:rotate-180">
+                    <ChevronDown className="w-5 h-5 text-blue-600" />
+                  </span>
+                </summary>
+                <div className="px-6 pb-6 text-slate-600 leading-relaxed border-t border-slate-100 mt-2 pt-4">
+                  {faq.a}
+                </div>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* 6. CTA */}
       <section
         className="text-white py-20"
@@ -343,7 +396,7 @@ export default async function ServicesPage() {
         aria-labelledby="services-cta-heading"
       >
         <div className="container-custom text-center">
-          <h2 id="services-cta-heading" className="text-3xl md:text-4xl font-bold mb-4 text-balance">
+          <h2 id="services-cta-heading" className="text-3xl md:text-4xl font-bold mb-4 text-balance text-white">
             Start Your Care Journey Today
           </h2>
           <p className="text-blue-200 text-lg mb-8 max-w-xl mx-auto">

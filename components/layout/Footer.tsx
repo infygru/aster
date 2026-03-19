@@ -35,9 +35,10 @@ const footerAreas = [
 ]
 
 const footerLegal = [
+  { label: 'GDPR Compliance',   href: '/gdpr' },
   { label: 'Privacy Policy',    href: '/privacy' },
-  { label: 'Cookie Policy',     href: '/cookies' },
-  { label: 'Terms of Service',  href: '/terms' },
+  { label: 'Cookie Policy',     href: '/cookie' },
+  { label: 'Terms & Conditions',href: '/terms' },
   { label: 'Complaints Policy', href: '/complaints' },
 ]
 
@@ -101,21 +102,18 @@ export function Footer({ settings }: FooterProps) {
                 <Image
                   src={getAssetUrl(settings.logo_dark)}
                   alt={siteName}
-                  width={140}
-                  height={36}
-                  className="h-9 w-auto object-contain"
+                  width={160}
+                  height={44}
+                  className="h-11 w-auto object-contain"
                 />
               ) : (
-                <>
-                  <div className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0"
-                    style={{ background: 'linear-gradient(135deg, #1D4ED8, #2563EB)' }}>
-                    <span className="text-white font-bold text-sm">A</span>
-                  </div>
-                  <div>
-                    <p className="font-bold text-white text-sm leading-tight">Aster Homecare</p>
-                    <p className="text-[10px] text-slate-400 font-medium leading-tight">UK Ltd</p>
-                  </div>
-                </>
+                <Image
+                  src="/logo.jpg"
+                  alt={siteName}
+                  width={160}
+                  height={44}
+                  className="h-11 w-auto object-contain"
+                />
               )}
             </Link>
 
