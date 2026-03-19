@@ -1,0 +1,948 @@
+{
+  "version": 1,
+  "directus": "10.13.0",
+  "vendor": "postgres",
+  "collections": [
+    {
+      "collection": "services",
+      "meta": {
+        "collection": "services",
+        "icon": "medical_services",
+        "note": "Home care service offerings displayed on the website",
+        "display_template": "{{title}}",
+        "hidden": false,
+        "singleton": false,
+        "sort_field": "sort",
+        "archive_field": "status",
+        "archive_value": "archived",
+        "unarchive_value": "draft",
+        "accountability": "all",
+        "color": "#2A9D8F",
+        "item_duplication_fields": null,
+        "sort": 1,
+        "group": null,
+        "collapse": "open"
+      },
+      "schema": {
+        "name": "services",
+        "comment": null
+      }
+    },
+    {
+      "collection": "testimonials",
+      "meta": {
+        "collection": "testimonials",
+        "icon": "format_quote",
+        "note": "Client and family testimonials for the website",
+        "display_template": "{{author_name}} — {{author_relation}}",
+        "hidden": false,
+        "singleton": false,
+        "sort_field": "sort",
+        "archive_field": "status",
+        "archive_value": "archived",
+        "unarchive_value": "draft",
+        "accountability": "all",
+        "color": "#E9C46A",
+        "sort": 2,
+        "group": null,
+        "collapse": "open"
+      },
+      "schema": {
+        "name": "testimonials",
+        "comment": null
+      }
+    },
+    {
+      "collection": "job_openings",
+      "meta": {
+        "collection": "job_openings",
+        "icon": "work",
+        "note": "Current job vacancies listed on the Careers page",
+        "display_template": "{{title}} ({{type}})",
+        "hidden": false,
+        "singleton": false,
+        "sort_field": "sort",
+        "archive_field": "status",
+        "archive_value": "archived",
+        "unarchive_value": "draft",
+        "accountability": "all",
+        "color": "#1E3A5F",
+        "sort": 3,
+        "group": null,
+        "collapse": "open"
+      },
+      "schema": {
+        "name": "job_openings",
+        "comment": null
+      }
+    },
+    {
+      "collection": "team",
+      "meta": {
+        "collection": "team",
+        "icon": "people",
+        "note": "Team members displayed on the About page",
+        "display_template": "{{name}} — {{role}}",
+        "hidden": false,
+        "singleton": false,
+        "sort_field": null,
+        "archive_field": "status",
+        "archive_value": "archived",
+        "unarchive_value": "draft",
+        "accountability": "all",
+        "color": "#2B5188",
+        "sort": 4,
+        "group": null,
+        "collapse": "open"
+      },
+      "schema": {
+        "name": "team",
+        "comment": null
+      }
+    }
+  ],
+  "fields": [
+    {
+      "collection": "services",
+      "field": "id",
+      "type": "uuid",
+      "meta": {
+        "collection": "services",
+        "field": "id",
+        "hidden": true,
+        "readonly": true,
+        "interface": "input",
+        "special": ["uuid"],
+        "sort": 1
+      },
+      "schema": {
+        "name": "id",
+        "table": "services",
+        "data_type": "uuid",
+        "is_primary_key": true,
+        "has_auto_increment": false,
+        "is_nullable": false
+      }
+    },
+    {
+      "collection": "services",
+      "field": "status",
+      "type": "string",
+      "meta": {
+        "collection": "services",
+        "field": "status",
+        "interface": "select-dropdown",
+        "display": "labels",
+        "display_options": {
+          "choices": [
+            { "text": "Published", "value": "published", "foreground": "#FFFFFF", "background": "#2A9D8F" },
+            { "text": "Draft", "value": "draft", "foreground": "#FFFFFF", "background": "#8B9EB7" },
+            { "text": "Archived", "value": "archived", "foreground": "#FFFFFF", "background": "#6B7280" }
+          ]
+        },
+        "options": {
+          "choices": [
+            { "text": "Published", "value": "published" },
+            { "text": "Draft", "value": "draft" },
+            { "text": "Archived", "value": "archived" }
+          ]
+        },
+        "width": "half",
+        "sort": 2
+      },
+      "schema": {
+        "name": "status",
+        "table": "services",
+        "data_type": "character varying",
+        "default_value": "draft",
+        "is_nullable": false
+      }
+    },
+    {
+      "collection": "services",
+      "field": "sort",
+      "type": "integer",
+      "meta": {
+        "collection": "services",
+        "field": "sort",
+        "interface": "input",
+        "hidden": true,
+        "sort": 3
+      },
+      "schema": {
+        "name": "sort",
+        "table": "services",
+        "data_type": "integer",
+        "is_nullable": true
+      }
+    },
+    {
+      "collection": "services",
+      "field": "title",
+      "type": "string",
+      "meta": {
+        "collection": "services",
+        "field": "title",
+        "interface": "input",
+        "required": true,
+        "width": "full",
+        "sort": 4
+      },
+      "schema": {
+        "name": "title",
+        "table": "services",
+        "data_type": "character varying",
+        "is_nullable": false
+      }
+    },
+    {
+      "collection": "services",
+      "field": "slug",
+      "type": "string",
+      "meta": {
+        "collection": "services",
+        "field": "slug",
+        "interface": "input",
+        "required": true,
+        "note": "URL-friendly identifier — e.g. personal-care",
+        "width": "half",
+        "sort": 5
+      },
+      "schema": {
+        "name": "slug",
+        "table": "services",
+        "data_type": "character varying",
+        "is_nullable": false,
+        "is_unique": true
+      }
+    },
+    {
+      "collection": "services",
+      "field": "icon",
+      "type": "string",
+      "meta": {
+        "collection": "services",
+        "field": "icon",
+        "interface": "select-dropdown",
+        "options": {
+          "choices": [
+            { "text": "Heart", "value": "heart" },
+            { "text": "Users", "value": "users" },
+            { "text": "Pill", "value": "pill" },
+            { "text": "Home", "value": "home" },
+            { "text": "Clock", "value": "clock" },
+            { "text": "Star", "value": "star" }
+          ]
+        },
+        "width": "half",
+        "sort": 6
+      },
+      "schema": {
+        "name": "icon",
+        "table": "services",
+        "data_type": "character varying",
+        "default_value": "heart",
+        "is_nullable": true
+      }
+    },
+    {
+      "collection": "services",
+      "field": "color",
+      "type": "string",
+      "meta": {
+        "collection": "services",
+        "field": "color",
+        "interface": "select-dropdown",
+        "options": {
+          "choices": [
+            { "text": "Blue (Trust)", "value": "blue" },
+            { "text": "Teal (Healing)", "value": "teal" },
+            { "text": "Gold (Premium)", "value": "gold" }
+          ]
+        },
+        "width": "half",
+        "sort": 7
+      },
+      "schema": {
+        "name": "color",
+        "table": "services",
+        "data_type": "character varying",
+        "default_value": "teal",
+        "is_nullable": true
+      }
+    },
+    {
+      "collection": "services",
+      "field": "description",
+      "type": "text",
+      "meta": {
+        "collection": "services",
+        "field": "description",
+        "interface": "input-multiline",
+        "required": true,
+        "note": "Short description shown on service cards (1–2 sentences)",
+        "width": "full",
+        "sort": 8
+      },
+      "schema": {
+        "name": "description",
+        "table": "services",
+        "data_type": "text",
+        "is_nullable": true
+      }
+    },
+    {
+      "collection": "services",
+      "field": "features",
+      "type": "json",
+      "meta": {
+        "collection": "services",
+        "field": "features",
+        "interface": "tags",
+        "note": "Bullet-point features shown on service cards",
+        "special": ["cast-json"],
+        "width": "full",
+        "sort": 9
+      },
+      "schema": {
+        "name": "features",
+        "table": "services",
+        "data_type": "jsonb",
+        "is_nullable": true
+      }
+    },
+    {
+      "collection": "services",
+      "field": "long_description",
+      "type": "text",
+      "meta": {
+        "collection": "services",
+        "field": "long_description",
+        "interface": "input-rich-text-html",
+        "note": "Full rich-text description for individual service pages",
+        "width": "full",
+        "sort": 10
+      },
+      "schema": {
+        "name": "long_description",
+        "table": "services",
+        "data_type": "text",
+        "is_nullable": true
+      }
+    },
+    {
+      "collection": "services",
+      "field": "image",
+      "type": "uuid",
+      "meta": {
+        "collection": "services",
+        "field": "image",
+        "interface": "file-image",
+        "special": ["file"],
+        "width": "full",
+        "sort": 11
+      },
+      "schema": {
+        "name": "image",
+        "table": "services",
+        "data_type": "uuid",
+        "is_nullable": true,
+        "foreign_key_table": "directus_files",
+        "foreign_key_column": "id"
+      }
+    },
+
+    {
+      "collection": "testimonials",
+      "field": "id",
+      "type": "uuid",
+      "meta": {
+        "collection": "testimonials",
+        "field": "id",
+        "hidden": true,
+        "readonly": true,
+        "interface": "input",
+        "special": ["uuid"],
+        "sort": 1
+      },
+      "schema": {
+        "name": "id",
+        "table": "testimonials",
+        "data_type": "uuid",
+        "is_primary_key": true,
+        "has_auto_increment": false,
+        "is_nullable": false
+      }
+    },
+    {
+      "collection": "testimonials",
+      "field": "status",
+      "type": "string",
+      "meta": {
+        "collection": "testimonials",
+        "field": "status",
+        "interface": "select-dropdown",
+        "display": "labels",
+        "display_options": {
+          "choices": [
+            { "text": "Published", "value": "published", "foreground": "#FFFFFF", "background": "#2A9D8F" },
+            { "text": "Draft", "value": "draft", "foreground": "#FFFFFF", "background": "#8B9EB7" }
+          ]
+        },
+        "options": {
+          "choices": [
+            { "text": "Published", "value": "published" },
+            { "text": "Draft", "value": "draft" }
+          ]
+        },
+        "width": "half",
+        "sort": 2
+      },
+      "schema": {
+        "name": "status",
+        "table": "testimonials",
+        "data_type": "character varying",
+        "default_value": "draft",
+        "is_nullable": false
+      }
+    },
+    {
+      "collection": "testimonials",
+      "field": "sort",
+      "type": "integer",
+      "meta": {
+        "collection": "testimonials",
+        "field": "sort",
+        "interface": "input",
+        "hidden": true,
+        "sort": 3
+      },
+      "schema": {
+        "name": "sort",
+        "table": "testimonials",
+        "data_type": "integer",
+        "is_nullable": true
+      }
+    },
+    {
+      "collection": "testimonials",
+      "field": "quote",
+      "type": "text",
+      "meta": {
+        "collection": "testimonials",
+        "field": "quote",
+        "interface": "input-multiline",
+        "required": true,
+        "width": "full",
+        "sort": 4
+      },
+      "schema": {
+        "name": "quote",
+        "table": "testimonials",
+        "data_type": "text",
+        "is_nullable": false
+      }
+    },
+    {
+      "collection": "testimonials",
+      "field": "author_name",
+      "type": "string",
+      "meta": {
+        "collection": "testimonials",
+        "field": "author_name",
+        "interface": "input",
+        "required": true,
+        "width": "half",
+        "sort": 5
+      },
+      "schema": {
+        "name": "author_name",
+        "table": "testimonials",
+        "data_type": "character varying",
+        "is_nullable": false
+      }
+    },
+    {
+      "collection": "testimonials",
+      "field": "author_relation",
+      "type": "string",
+      "meta": {
+        "collection": "testimonials",
+        "field": "author_relation",
+        "interface": "input",
+        "required": true,
+        "note": "e.g. Daughter of client, Care recipient, Son of client",
+        "width": "half",
+        "sort": 6
+      },
+      "schema": {
+        "name": "author_relation",
+        "table": "testimonials",
+        "data_type": "character varying",
+        "is_nullable": false
+      }
+    },
+    {
+      "collection": "testimonials",
+      "field": "author_location",
+      "type": "string",
+      "meta": {
+        "collection": "testimonials",
+        "field": "author_location",
+        "interface": "input",
+        "note": "e.g. Slough, Windsor, Berkshire",
+        "width": "half",
+        "sort": 7
+      },
+      "schema": {
+        "name": "author_location",
+        "table": "testimonials",
+        "data_type": "character varying",
+        "is_nullable": true
+      }
+    },
+    {
+      "collection": "testimonials",
+      "field": "rating",
+      "type": "integer",
+      "meta": {
+        "collection": "testimonials",
+        "field": "rating",
+        "interface": "slider",
+        "options": { "min": 1, "max": 5, "step": 1 },
+        "width": "half",
+        "sort": 8
+      },
+      "schema": {
+        "name": "rating",
+        "table": "testimonials",
+        "data_type": "integer",
+        "default_value": 5,
+        "is_nullable": true
+      }
+    },
+
+    {
+      "collection": "job_openings",
+      "field": "id",
+      "type": "uuid",
+      "meta": {
+        "collection": "job_openings",
+        "field": "id",
+        "hidden": true,
+        "readonly": true,
+        "interface": "input",
+        "special": ["uuid"],
+        "sort": 1
+      },
+      "schema": {
+        "name": "id",
+        "table": "job_openings",
+        "data_type": "uuid",
+        "is_primary_key": true,
+        "has_auto_increment": false,
+        "is_nullable": false
+      }
+    },
+    {
+      "collection": "job_openings",
+      "field": "status",
+      "type": "string",
+      "meta": {
+        "collection": "job_openings",
+        "field": "status",
+        "interface": "select-dropdown",
+        "display": "labels",
+        "display_options": {
+          "choices": [
+            { "text": "Published", "value": "published", "foreground": "#FFFFFF", "background": "#2A9D8F" },
+            { "text": "Draft", "value": "draft", "foreground": "#FFFFFF", "background": "#8B9EB7" },
+            { "text": "Archived", "value": "archived", "foreground": "#FFFFFF", "background": "#6B7280" }
+          ]
+        },
+        "options": {
+          "choices": [
+            { "text": "Published", "value": "published" },
+            { "text": "Draft", "value": "draft" },
+            { "text": "Archived", "value": "archived" }
+          ]
+        },
+        "width": "half",
+        "sort": 2
+      },
+      "schema": {
+        "name": "status",
+        "table": "job_openings",
+        "data_type": "character varying",
+        "default_value": "draft",
+        "is_nullable": false
+      }
+    },
+    {
+      "collection": "job_openings",
+      "field": "sort",
+      "type": "integer",
+      "meta": {
+        "collection": "job_openings",
+        "field": "sort",
+        "interface": "input",
+        "hidden": true,
+        "sort": 3
+      },
+      "schema": {
+        "name": "sort",
+        "table": "job_openings",
+        "data_type": "integer",
+        "is_nullable": true
+      }
+    },
+    {
+      "collection": "job_openings",
+      "field": "title",
+      "type": "string",
+      "meta": {
+        "collection": "job_openings",
+        "field": "title",
+        "interface": "input",
+        "required": true,
+        "width": "half",
+        "sort": 4
+      },
+      "schema": {
+        "name": "title",
+        "table": "job_openings",
+        "data_type": "character varying",
+        "is_nullable": false
+      }
+    },
+    {
+      "collection": "job_openings",
+      "field": "slug",
+      "type": "string",
+      "meta": {
+        "collection": "job_openings",
+        "field": "slug",
+        "interface": "input",
+        "required": true,
+        "width": "half",
+        "sort": 5
+      },
+      "schema": {
+        "name": "slug",
+        "table": "job_openings",
+        "data_type": "character varying",
+        "is_nullable": false,
+        "is_unique": true
+      }
+    },
+    {
+      "collection": "job_openings",
+      "field": "department",
+      "type": "string",
+      "meta": {
+        "collection": "job_openings",
+        "field": "department",
+        "interface": "input",
+        "width": "half",
+        "sort": 6
+      },
+      "schema": {
+        "name": "department",
+        "table": "job_openings",
+        "data_type": "character varying",
+        "is_nullable": true
+      }
+    },
+    {
+      "collection": "job_openings",
+      "field": "location",
+      "type": "string",
+      "meta": {
+        "collection": "job_openings",
+        "field": "location",
+        "interface": "input",
+        "width": "half",
+        "sort": 7
+      },
+      "schema": {
+        "name": "location",
+        "table": "job_openings",
+        "data_type": "character varying",
+        "default_value": "Slough, Berkshire",
+        "is_nullable": true
+      }
+    },
+    {
+      "collection": "job_openings",
+      "field": "type",
+      "type": "string",
+      "meta": {
+        "collection": "job_openings",
+        "field": "type",
+        "interface": "select-dropdown",
+        "options": {
+          "choices": [
+            { "text": "Full-time", "value": "full-time" },
+            { "text": "Part-time", "value": "part-time" },
+            { "text": "Flexible", "value": "flexible" }
+          ]
+        },
+        "width": "half",
+        "sort": 8
+      },
+      "schema": {
+        "name": "type",
+        "table": "job_openings",
+        "data_type": "character varying",
+        "is_nullable": true
+      }
+    },
+    {
+      "collection": "job_openings",
+      "field": "salary_range",
+      "type": "string",
+      "meta": {
+        "collection": "job_openings",
+        "field": "salary_range",
+        "interface": "input",
+        "note": "e.g. £11.50–£13.00/hr",
+        "width": "half",
+        "sort": 9
+      },
+      "schema": {
+        "name": "salary_range",
+        "table": "job_openings",
+        "data_type": "character varying",
+        "is_nullable": true
+      }
+    },
+    {
+      "collection": "job_openings",
+      "field": "description",
+      "type": "text",
+      "meta": {
+        "collection": "job_openings",
+        "field": "description",
+        "interface": "input-rich-text-html",
+        "required": true,
+        "width": "full",
+        "sort": 10
+      },
+      "schema": {
+        "name": "description",
+        "table": "job_openings",
+        "data_type": "text",
+        "is_nullable": true
+      }
+    },
+    {
+      "collection": "job_openings",
+      "field": "requirements",
+      "type": "json",
+      "meta": {
+        "collection": "job_openings",
+        "field": "requirements",
+        "interface": "tags",
+        "note": "List of requirements / qualifications",
+        "special": ["cast-json"],
+        "width": "full",
+        "sort": 11
+      },
+      "schema": {
+        "name": "requirements",
+        "table": "job_openings",
+        "data_type": "jsonb",
+        "is_nullable": true
+      }
+    },
+    {
+      "collection": "job_openings",
+      "field": "date_posted",
+      "type": "date",
+      "meta": {
+        "collection": "job_openings",
+        "field": "date_posted",
+        "interface": "datetime",
+        "width": "half",
+        "sort": 12
+      },
+      "schema": {
+        "name": "date_posted",
+        "table": "job_openings",
+        "data_type": "date",
+        "is_nullable": true
+      }
+    },
+    {
+      "collection": "job_openings",
+      "field": "closing_date",
+      "type": "date",
+      "meta": {
+        "collection": "job_openings",
+        "field": "closing_date",
+        "interface": "datetime",
+        "width": "half",
+        "sort": 13
+      },
+      "schema": {
+        "name": "closing_date",
+        "table": "job_openings",
+        "data_type": "date",
+        "is_nullable": true
+      }
+    },
+
+    {
+      "collection": "team",
+      "field": "id",
+      "type": "uuid",
+      "meta": {
+        "collection": "team",
+        "field": "id",
+        "hidden": true,
+        "readonly": true,
+        "interface": "input",
+        "special": ["uuid"],
+        "sort": 1
+      },
+      "schema": {
+        "name": "id",
+        "table": "team",
+        "data_type": "uuid",
+        "is_primary_key": true,
+        "has_auto_increment": false,
+        "is_nullable": false
+      }
+    },
+    {
+      "collection": "team",
+      "field": "status",
+      "type": "string",
+      "meta": {
+        "collection": "team",
+        "field": "status",
+        "interface": "select-dropdown",
+        "display": "labels",
+        "display_options": {
+          "choices": [
+            { "text": "Published", "value": "published", "foreground": "#FFFFFF", "background": "#2A9D8F" },
+            { "text": "Draft", "value": "draft", "foreground": "#FFFFFF", "background": "#8B9EB7" }
+          ]
+        },
+        "options": {
+          "choices": [
+            { "text": "Published", "value": "published" },
+            { "text": "Draft", "value": "draft" }
+          ]
+        },
+        "width": "half",
+        "sort": 2
+      },
+      "schema": {
+        "name": "status",
+        "table": "team",
+        "data_type": "character varying",
+        "default_value": "draft",
+        "is_nullable": false
+      }
+    },
+    {
+      "collection": "team",
+      "field": "name",
+      "type": "string",
+      "meta": {
+        "collection": "team",
+        "field": "name",
+        "interface": "input",
+        "required": true,
+        "width": "half",
+        "sort": 3
+      },
+      "schema": {
+        "name": "name",
+        "table": "team",
+        "data_type": "character varying",
+        "is_nullable": false
+      }
+    },
+    {
+      "collection": "team",
+      "field": "role",
+      "type": "string",
+      "meta": {
+        "collection": "team",
+        "field": "role",
+        "interface": "input",
+        "required": true,
+        "width": "half",
+        "sort": 4
+      },
+      "schema": {
+        "name": "role",
+        "table": "team",
+        "data_type": "character varying",
+        "is_nullable": false
+      }
+    },
+    {
+      "collection": "team",
+      "field": "bio",
+      "type": "text",
+      "meta": {
+        "collection": "team",
+        "field": "bio",
+        "interface": "input-multiline",
+        "width": "full",
+        "sort": 5
+      },
+      "schema": {
+        "name": "bio",
+        "table": "team",
+        "data_type": "text",
+        "is_nullable": true
+      }
+    },
+    {
+      "collection": "team",
+      "field": "photo",
+      "type": "uuid",
+      "meta": {
+        "collection": "team",
+        "field": "photo",
+        "interface": "file-image",
+        "special": ["file"],
+        "width": "half",
+        "sort": 6
+      },
+      "schema": {
+        "name": "photo",
+        "table": "team",
+        "data_type": "uuid",
+        "is_nullable": true,
+        "foreign_key_table": "directus_files",
+        "foreign_key_column": "id"
+      }
+    },
+    {
+      "collection": "team",
+      "field": "nominated_individual",
+      "type": "boolean",
+      "meta": {
+        "collection": "team",
+        "field": "nominated_individual",
+        "interface": "boolean",
+        "note": "Mark if this person is the CQC Nominated Individual",
+        "width": "half",
+        "sort": 7
+      },
+      "schema": {
+        "name": "nominated_individual",
+        "table": "team",
+        "data_type": "boolean",
+        "default_value": false,
+        "is_nullable": false
+      }
+    }
+  ],
+  "relations": []
+}

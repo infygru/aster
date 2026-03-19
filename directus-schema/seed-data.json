@@ -1,0 +1,193 @@
+{
+  "services": [
+    {
+      "status": "published",
+      "sort": 1,
+      "title": "Personal Care",
+      "slug": "personal-care",
+      "icon": "heart",
+      "color": "blue",
+      "description": "Dignified, compassionate assistance with daily living activities including bathing, dressing, grooming, and personal hygiene — all tailored to individual needs and preferences.",
+      "features": [
+        "Bathing & personal hygiene",
+        "Dressing & grooming assistance",
+        "Toileting & continence care",
+        "Skin care & pressure prevention",
+        "Morning & evening routines",
+        "Meal preparation & nutrition"
+      ],
+      "long_description": "<h2>Personal Care Services</h2><p>Our personal care service provides dignified, compassionate support with all aspects of daily living. Our trained carers work with each client to understand their preferences and routines, ensuring care is delivered in a way that maintains dignity and promotes independence.</p><h3>What's Included</h3><ul><li>Bathing, showering, and personal hygiene support</li><li>Dressing and undressing assistance</li><li>Hair care, shaving, and grooming</li><li>Oral hygiene support</li><li>Continence care and management</li><li>Skin care and pressure sore prevention</li><li>Morning and bedtime routines</li><li>Nutritious meal preparation</li></ul><p>All personal care is provided by DBS-checked, trained carers and forms part of a personalised care plan reviewed regularly with the client and family.</p>"
+    },
+    {
+      "status": "published",
+      "sort": 2,
+      "title": "Companionship",
+      "slug": "companionship",
+      "icon": "users",
+      "color": "teal",
+      "description": "Meaningful social interaction, emotional support, and engagement activities to combat loneliness, stimulate the mind, and promote mental well-being and happiness.",
+      "features": [
+        "Social conversation & friendship",
+        "Accompanying to appointments",
+        "Shopping & local errands",
+        "Hobbies & recreational activities",
+        "Light housekeeping",
+        "Meal companionship"
+      ],
+      "long_description": "<h2>Companionship Services</h2><p>Loneliness and social isolation can have a significant impact on health and well-being. Our companionship service connects clients with a warm, friendly carer who provides genuine company, stimulating conversation, and support with activities they enjoy.</p><h3>What's Included</h3><ul><li>Regular visits with a consistent, familiar carer</li><li>Stimulating conversation and social interaction</li><li>Accompanying to appointments, social events, and outings</li><li>Support with hobbies, crafts, and leisure activities</li><li>Reading and games</li><li>Shopping trips and errands</li><li>Light housekeeping and home support</li><li>Sitting with a client to give family carers a break (respite)</li></ul>"
+    },
+    {
+      "status": "published",
+      "sort": 3,
+      "title": "Medication Support",
+      "slug": "medication-support",
+      "icon": "pill",
+      "color": "gold",
+      "description": "Safe, reliable medication reminders and administration support, ensuring clients take the right medication at the right time — giving families complete peace of mind.",
+      "features": [
+        "Medication reminders & prompts",
+        "Prescription collection",
+        "Medication administration",
+        "MAR chart completion",
+        "Liaison with pharmacies & GPs",
+        "Health monitoring & reporting"
+      ],
+      "long_description": "<h2>Medication Support Services</h2><p>Managing multiple medications can be challenging. Our trained carers provide safe, reliable medication support in line with our Medication Management Policy and CQC standards.</p><h3>What's Included</h3><ul><li>Medication reminders at prescribed times</li><li>Assistance with self-administration (prompting)</li><li>Administration of medication where authorised</li><li>Medication Administration Record (MAR) chart completion</li><li>Prescription collection from pharmacy</li><li>Liaison with GPs and healthcare professionals</li><li>Health monitoring and reporting of concerns</li><li>Blister pack management support</li></ul><p>All medication support is carried out in accordance with our Medication Policy and the carers' training and competency assessment.</p>"
+    }
+  ],
+
+  "testimonials": [
+    {
+      "status": "published",
+      "sort": 1,
+      "quote": "The carers from Aster Homecare have been absolutely wonderful with my mother. They treat her with such dignity and kindness. Mum looks forward to her visits and has become so much brighter since they started. I can't recommend them highly enough.",
+      "author_name": "Sarah M.",
+      "author_relation": "Daughter of client",
+      "author_location": "Slough",
+      "rating": 5
+    },
+    {
+      "status": "published",
+      "sort": 2,
+      "quote": "Since starting with Aster Homecare, my father has regained his confidence and independence. The medication support has given our whole family tremendous peace of mind — we know it's being handled safely and properly every single day.",
+      "author_name": "James T.",
+      "author_relation": "Son of client",
+      "author_location": "Windsor",
+      "rating": 5
+    },
+    {
+      "status": "published",
+      "sort": 3,
+      "quote": "Professional, compassionate, and completely reliable. The care coordinator is always responsive and genuinely cares about getting the right support in place. The team goes above and beyond what you'd expect.",
+      "author_name": "Patricia H.",
+      "author_relation": "Care recipient",
+      "author_location": "Slough",
+      "rating": 5
+    },
+    {
+      "status": "published",
+      "sort": 4,
+      "quote": "We tried two other agencies before Aster Homecare and there is simply no comparison. The consistency of care, the quality of the carers, and the communication from management has been exceptional from day one.",
+      "author_name": "Robert & Linda K.",
+      "author_relation": "Children of client",
+      "author_location": "Maidenhead",
+      "rating": 5
+    },
+    {
+      "status": "published",
+      "sort": 5,
+      "quote": "As a healthcare professional myself, I know what good care looks like. Aster Homecare consistently delivers it. My aunt has complex needs and they handle everything with skill, patience, and a smile.",
+      "author_name": "Dr. Anita P.",
+      "author_relation": "Niece of client",
+      "author_location": "Berkshire",
+      "rating": 5
+    },
+    {
+      "status": "draft",
+      "sort": 6,
+      "quote": "The companionship service has transformed my uncle's quality of life. He was very isolated after losing his wife, but now he has regular visits and actually has things to look forward to again.",
+      "author_name": "Michael O.",
+      "author_relation": "Nephew of client",
+      "author_location": "Slough",
+      "rating": 5
+    }
+  ],
+
+  "job_openings": [
+    {
+      "status": "published",
+      "sort": 1,
+      "title": "Care Worker",
+      "slug": "care-worker",
+      "department": "Care Delivery",
+      "location": "Slough, Berkshire",
+      "type": "flexible",
+      "salary_range": "£11.44–£12.50/hr",
+      "date_posted": "2024-01-15",
+      "closing_date": null,
+      "description": "<p>We are looking for compassionate, reliable Care Workers to join our growing team in Slough and the surrounding areas. You will provide personal care, companionship, and medication support to clients in their own homes.</p><p>No previous experience is essential — we provide full training including a comprehensive induction, shadow shifts, and ongoing professional development. What matters most is that you are kind, patient, and dedicated to making a difference in people's lives.</p>",
+      "requirements": [
+        "Right to work in the UK",
+        "Enhanced DBS check (we can assist with this)",
+        "Compassionate and empathetic nature",
+        "Reliable and punctual",
+        "Good communication skills",
+        "Driving licence and own vehicle (preferred)",
+        "Willingness to work mornings, evenings, and alternate weekends"
+      ]
+    },
+    {
+      "status": "published",
+      "sort": 2,
+      "title": "Senior Care Worker",
+      "slug": "senior-care-worker",
+      "department": "Care Delivery",
+      "location": "Slough, Berkshire",
+      "type": "full-time",
+      "salary_range": "£12.50–£14.00/hr",
+      "date_posted": "2024-01-15",
+      "closing_date": null,
+      "description": "<p>We are seeking an experienced Senior Care Worker to lead by example on our care team. You will mentor junior care workers, carry out care assessments, and act as a key worker for a caseload of clients.</p><p>This is an excellent opportunity for an experienced carer who is ready to take the next step in their career.</p>",
+      "requirements": [
+        "Minimum 2 years' experience in a domiciliary care setting",
+        "NVQ Level 2/3 in Health & Social Care (or equivalent)",
+        "Enhanced DBS check",
+        "Strong leadership and communication skills",
+        "Driving licence and own vehicle",
+        "Knowledge of CQC standards and regulations"
+      ]
+    },
+    {
+      "status": "published",
+      "sort": 3,
+      "title": "Care Coordinator",
+      "slug": "care-coordinator",
+      "department": "Operations",
+      "location": "Slough, Berkshire (Office-based)",
+      "type": "full-time",
+      "salary_range": "£26,000–£30,000/yr",
+      "date_posted": "2024-02-01",
+      "closing_date": null,
+      "description": "<p>We are looking for an organised, people-focused Care Coordinator to join our office team. You will be responsible for scheduling care visits, managing a team of carers, liaising with clients and families, and ensuring our high standards of care are maintained.</p>",
+      "requirements": [
+        "Experience in a care coordination or scheduling role",
+        "Strong organisational and time-management skills",
+        "Excellent communication and interpersonal skills",
+        "Proficiency with care management software",
+        "Knowledge of domiciliary care regulations",
+        "NVQ Level 3 in Health & Social Care desirable",
+        "Enhanced DBS check"
+      ]
+    }
+  ],
+
+  "team": [
+    {
+      "status": "published",
+      "name": "Sanjeev Srichandan",
+      "role": "Nominated Individual & Registered Manager",
+      "bio": "Sanjeev Srichandan is the Nominated Individual and Registered Manager for Aster Homecare UK Ltd (CQC Provider ID: 1-20633610286). With extensive experience in health and social care management, Sanjeev is responsible for supervising the management of regulated activities and ensuring the organisation consistently meets and exceeds CQC standards. Sanjeev leads the team's commitment to delivering safe, effective, compassionate, and responsive care to every client.",
+      "nominated_individual": true
+    }
+  ]
+}
