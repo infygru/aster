@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: 'standalone',
   // Keep @directus/sdk as a Node.js external — never bundle it via webpack.
   // This prevents dev-mode HMR from creating phantom client stubs for the ESM package.
   // Note: renamed from experimental.serverComponentsExternalPackages in Next.js 14.
