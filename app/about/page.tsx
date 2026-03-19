@@ -188,7 +188,7 @@ export default async function AboutPage() {
                 <h3 className="text-xl font-bold">CQC Registration</h3>
               </div>
 
-              <table className="w-full text-sm" aria-label="CQC registration details">
+              <div className="overflow-x-auto -mx-1"><table className="w-full text-sm min-w-[280px]" aria-label="CQC registration details">
                 <tbody className="divide-y divide-white/10">
                   {[
                     { label: 'Provider Name', value: 'Aster Homecare UK Ltd' },
@@ -206,7 +206,7 @@ export default async function AboutPage() {
                     </tr>
                   ))}
                 </tbody>
-              </table>
+              </table></div>
 
               <Link
                 href="https://www.cqc.org.uk/provider/1-20633610286"

@@ -36,7 +36,7 @@ function FeaturedCard({ service, num }: { service: DirectusService; num: string 
       style={{
         background: 'linear-gradient(150deg, #2563EB 0%, #1D4ED8 60%, #1E3A8A 100%)',
         boxShadow: '0 16px 48px rgba(37,99,235,0.30)',
-        minHeight: '380px',
+        minHeight: 'clamp(260px, 40vw, 380px)',
       }}
       aria-label={`Learn about ${service.title}`}
     >

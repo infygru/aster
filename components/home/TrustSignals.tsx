@@ -1,130 +1,142 @@
-import { ShieldCheck, Heart, Clock, Users, Award, CheckCircle } from 'lucide-react'
+import { ShieldCheck, Heart, Clock, Users, Award, CheckCircle, Star } from 'lucide-react'
+import Link from 'next/link'
 import { ScrollReveal } from '@/components/ScrollReveal'
 
 const features = [
   {
-    num: '01',
     icon: ShieldCheck,
     title: 'CQC Regulated',
     desc: 'Fully registered and inspected by the Care Quality Commission — our care consistently meets the highest national standards.',
+    color: '#F59E0B',
+    bg: '#FFFBEB',
   },
   {
-    num: '02',
     icon: Heart,
-    title: 'Person-Centred Care Plans',
-    desc: 'Every plan is built around you — your preferences, routines and goals. Never generic, always personal.',
+    title: 'Person-Centred Plans',
+    desc: 'Every care plan is built around you — your preferences, routines and goals. Never generic, always deeply personal.',
+    color: '#EF4444',
+    bg: '#FEF2F2',
   },
   {
-    num: '03',
     icon: Users,
     title: 'Expertly Matched Carers',
-    desc: 'We take time to match every client with a compatible, DBS-checked and thoroughly trained carer.',
+    desc: 'We take time to match every client with a compatible, DBS-checked and thoroughly trained carer you can trust.',
+    color: '#8B5CF6',
+    bg: '#F5F3FF',
   },
   {
-    num: '04',
     icon: Clock,
     title: '24 / 7 On-Call Support',
     desc: 'Day or night, our coordination team is always reachable — for clients, families and carers alike.',
+    color: '#0EA5E9',
+    bg: '#F0F9FF',
   },
   {
-    num: '05',
     icon: Award,
     title: 'Locally Trusted',
-    desc: 'Rooted in Slough and Windsor, we know our community and have built lasting trust with hundreds of families.',
+    desc: 'Rooted in Slough and Windsor, we know our community and have built lasting relationships with hundreds of families.',
+    color: '#10B981',
+    bg: '#ECFDF5',
   },
   {
-    num: '06',
     icon: CheckCircle,
     title: 'Free Home Assessment',
-    desc: 'Start with a no-obligation visit. We listen carefully before we ever suggest a care plan.',
+    desc: 'Start with a no-obligation home visit. We listen carefully before we ever suggest a care plan.',
+    color: '#F59E0B',
+    bg: '#FFFBEB',
   },
 ]
 
 const stats = [
-  { value: '500+', sub: 'Families supported' },
-  { value: '5.0★', sub: 'Client satisfaction' },
-  { value: '50+',  sub: 'Trained carers' },
+  { value: '500+', label: 'Families Supported' },
+  { value: '5.0', label: 'Star Satisfaction', icon: Star },
+  { value: '50+',  label: 'Trained Carers' },
+  { value: '100%', label: 'DBS Checked' },
 ]
 
 export function TrustSignals() {
   return (
-    <section className="overflow-hidden bg-white" aria-labelledby="why-us-heading">
+    <section className="bg-stone-50 py-16 md:py-24" aria-labelledby="why-us-heading">
       <div className="container-custom">
-        <div className="grid lg:grid-cols-5 gap-0">
 
-          {/* ── LEFT: Social proof panel ── */}
-          <ScrollReveal animation="left">
-            <div
-              className="lg:col-span-2 rounded-none lg:rounded-3xl flex flex-col justify-between p-10 lg:p-12 my-0 lg:my-16"
-              style={{ background: 'linear-gradient(160deg, #2563EB 0%, #1E3A8A 100%)' }}
+        {/* ── Header ── */}
+        <ScrollReveal animation="up">
+          <div className="text-center max-w-2xl mx-auto mb-12 md:mb-16">
+            <span className="inline-block text-xs font-bold uppercase tracking-widest text-amber-600 mb-3">
+              Why Choose Us
+            </span>
+            <h2
+              id="why-us-heading"
+              className="text-3xl md:text-4xl font-extrabold text-stone-900 leading-tight mb-4"
             >
-              <div>
-                <span className="text-blue-200 text-xs font-bold uppercase tracking-widest">Why Choose Us</span>
-                <h2
-                  id="why-us-heading"
-                  className="mt-4 text-3xl lg:text-4xl font-extrabold text-white leading-tight"
-                >
-                  Built on trust,<br />proven by results.
-                </h2>
-                <p className="mt-4 text-blue-100 text-sm leading-relaxed">
-                  Aster Homecare UK combines clinical excellence with genuine human warmth — a combination that makes a real difference to the families we serve.
-                </p>
-              </div>
-
-              {/* Stats */}
-              <div className="mt-10 space-y-5">
-                {stats.map((s, i) => (
-                  <div key={s.value} className="flex items-end gap-3">
-                    <span className="text-4xl font-black text-white leading-none">{s.value}</span>
-                    <span className="text-blue-200 text-sm mb-1">{s.sub}</span>
-                    {i < stats.length - 1 && (
-                      <div className="flex-1 border-b border-blue-800/30 mb-1" />
-                    )}
-                  </div>
-                ))}
-              </div>
-
-              {/* CQC strip */}
-              <div className="mt-10 flex items-center gap-3 pt-8 border-t border-blue-800/30">
-                <div className="w-9 h-9 rounded-xl bg-white/10 flex items-center justify-center flex-shrink-0">
-                  <ShieldCheck className="w-5 h-5 text-white" />
-                </div>
-                <div>
-                  <p className="text-white font-bold text-sm leading-none">CQC Registered Provider</p>
-                  <p className="text-blue-200 text-xs mt-0.5">Regulated care you can trust</p>
-                </div>
-              </div>
-            </div>
-          </ScrollReveal>
-
-          {/* ── RIGHT: Numbered feature list ── */}
-          <div className="lg:col-span-3 py-16 lg:py-24 lg:pl-14">
-            <div className="divide-y" style={{ borderColor: '#F1F5F9' }}>
-              {features.map((f, i) => (
-                <ScrollReveal key={f.num} animation="right" delay={(Math.min(i, 4) as 0 | 1 | 2 | 3 | 4)}>
-                  <div className="group flex items-start gap-5 py-6 transition-all duration-200 hover:pl-1">
-                    {/* Number + icon */}
-                    <div className="flex-shrink-0 flex flex-col items-center gap-1.5 w-10">
-                      <span className="text-[10px] font-black tracking-wider" style={{ color: '#2563EB' }}>{f.num}</span>
-                      <div className="w-10 h-10 rounded-xl flex items-center justify-center"
-                        style={{ background: '#EFF6FF' }}>
-                        <span style={{ color: '#2563EB' }} aria-hidden="true"><f.icon className="w-4.5 h-4.5 w-[18px] h-[18px]" /></span>
-                      </div>
-                    </div>
-                    {/* Text */}
-                    <div className="flex-1 min-w-0">
-                      <h3 className="font-bold text-base mb-1.5 leading-snug" style={{ color: '#0F172A' }}>
-                        {f.title}
-                      </h3>
-                      <p className="text-sm leading-relaxed" style={{ color: '#64748B' }}>{f.desc}</p>
-                    </div>
-                  </div>
-                </ScrollReveal>
-              ))}
-            </div>
+              Care built on trust,<br className="hidden sm:block" /> proven by results.
+            </h2>
+            <p className="text-stone-500 leading-relaxed text-sm md:text-base">
+              Aster Homecare UK combines clinical excellence with genuine human warmth —
+              a combination that makes a real difference to the families we serve.
+            </p>
           </div>
+        </ScrollReveal>
 
+        {/* ── Stats bar ── */}
+        <ScrollReveal animation="up" delay={1}>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-12 md:mb-16">
+            {stats.map((s) => (
+              <div
+                key={s.value}
+                className="bg-white rounded-2xl px-4 py-5 text-center border border-stone-100 shadow-sm"
+              >
+                <div className="flex items-center justify-center gap-1">
+                  <span className="text-2xl md:text-3xl font-black text-stone-900">{s.value}</span>
+                  {s.icon && <s.icon className="w-5 h-5 text-amber-400 fill-amber-400" aria-hidden="true" />}
+                </div>
+                <p className="text-xs text-stone-500 font-medium mt-1">{s.label}</p>
+              </div>
+            ))}
+          </div>
+        </ScrollReveal>
+
+        {/* ── Feature cards ── */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+          {features.map((f, i) => (
+            <ScrollReveal key={f.title} animation="up" delay={(Math.min(i % 3, 4) as 0 | 1 | 2 | 3 | 4)}>
+              <div className="group bg-white rounded-2xl p-6 md:p-7 border border-stone-100 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 h-full flex flex-col">
+                <div
+                  className="w-11 h-11 rounded-xl flex items-center justify-center mb-4 flex-shrink-0"
+                  style={{ background: f.bg }}
+                >
+                  <span style={{ color: f.color }} aria-hidden="true">
+                    <f.icon className="w-5 h-5" />
+                  </span>
+                </div>
+                <h3 className="font-bold text-stone-900 mb-2 leading-snug">{f.title}</h3>
+                <p className="text-sm text-stone-500 leading-relaxed flex-1">{f.desc}</p>
+              </div>
+            </ScrollReveal>
+          ))}
         </div>
+
+        {/* ── CQC trust footer ── */}
+        <ScrollReveal animation="up" delay={2}>
+          <div className="mt-10 md:mt-14 flex flex-col sm:flex-row items-center justify-between gap-4 bg-white rounded-2xl px-6 py-5 border border-stone-100 shadow-sm">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-xl bg-amber-50 flex items-center justify-center flex-shrink-0">
+                <ShieldCheck className="w-5 h-5 text-amber-600" aria-hidden="true" />
+              </div>
+              <div>
+                <p className="font-bold text-stone-900 text-sm leading-none">CQC Registered Provider</p>
+                <p className="text-xs text-stone-400 mt-0.5">Regulated care you can trust</p>
+              </div>
+            </div>
+            <Link
+              href="/assessment"
+              className="w-full sm:w-auto text-center bg-amber-500 hover:bg-amber-600 text-white font-bold text-sm px-6 py-2.5 rounded-xl transition-colors"
+            >
+              Book Free Assessment
+            </Link>
+          </div>
+        </ScrollReveal>
+
       </div>
     </section>
   )

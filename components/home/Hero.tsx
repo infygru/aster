@@ -25,7 +25,7 @@ export async function Hero() {
 
       {/* ── Decorative glow ── */}
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
-        <div className="absolute -top-32 -left-32 w-[500px] h-[500px] rounded-full opacity-25"
+        <div className="absolute -top-32 -left-32 w-[300px] h-[300px] md:w-[500px] md:h-[500px] rounded-full opacity-25"
           style={{ background: 'radial-gradient(circle, rgba(37,99,235,0.5) 0%, transparent 65%)' }} />
         <div className="absolute top-1/2 left-1/3 w-[300px] h-[300px] rounded-full opacity-10"
           style={{ background: 'radial-gradient(circle, rgba(217,119,6,0.25) 0%, transparent 65%)' }} />

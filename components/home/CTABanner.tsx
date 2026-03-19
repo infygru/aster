@@ -9,8 +9,8 @@ export async function CTABanner() {
 
   return (
     <section
-      className="relative overflow-hidden"
-      style={{ background: 'linear-gradient(135deg, #1E3A8A 0%, #1D4ED8 100%)', padding: '5rem 0' }}
+      className="relative overflow-hidden py-16 md:py-20"
+      style={{ background: 'linear-gradient(135deg, #1E3A8A 0%, #1D4ED8 100%)' }}
       aria-labelledby="cta-heading"
     >
       {/* Subtle pattern */}
