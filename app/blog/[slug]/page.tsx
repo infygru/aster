@@ -83,7 +83,7 @@ function JsonLd({ post }: { post: NonNullable<Awaited<ReturnType<typeof getBlogP
           '@type': 'Organization',
           name: 'Aster Homecare UK',
           url: siteUrl,
-          logo: { '@type': 'ImageObject', url: `${siteUrl}/logo.png` },
+          logo: { '@type': 'ImageObject', url: `${siteUrl}/logo.svg` },
         },
         mainEntityOfPage: { '@type': 'WebPage', '@id': postUrl },
         articleSection: category?.name,

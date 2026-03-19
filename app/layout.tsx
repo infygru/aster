@@ -13,7 +13,7 @@ export async function generateMetadata(): Promise<Metadata> {
     settings?.seo_description ||
     'Aster Homecare UK provides compassionate, CQC-registered home care services in Slough and Berkshire. Personal care, companionship, and medication support tailored to your needs.'
   const siteName = settings?.site_name || 'Aster Homecare UK'
-  const ogImageUrl = settings?.og_image ? getAssetUrl(settings.og_image) : '/og-image.jpg'
+  const ogImageUrl = settings?.og_image ? getAssetUrl(settings.og_image) : '/og-image.svg'
 
   return {
     title: {

@@ -15,11 +15,6 @@ const nextConfig = {
         protocol: 'https',
         hostname: '**.directus.app',
       },
-      {
-        protocol: 'http',
-        hostname: 'localhost',
-        port: '8055',
-      },
     ],
   },
 }

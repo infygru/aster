@@ -23,6 +23,7 @@ type FormData = z.infer<typeof schema>
 
 export function ContactForm() {
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [submitError, setSubmitError] = useState<string | null>(null)
 
   const {
     register,
@@ -34,10 +35,19 @@ export function ContactForm() {
   })
 
   const onSubmit = async (data: FormData) => {
-    await new Promise((r) => setTimeout(r, 1500))
-    console.log('Contact form submission:', data)
+    setSubmitError(null)
+    try {
+    const res = await fetch('/api/contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data),
+    })
+    if (!res.ok) throw new Error('Submission failed')
     setIsSubmitted(true)
     reset()
+    } catch {
+      setSubmitError('Sorry, something went wrong. Please try again or call us directly.')
+    }
   }
 
   if (isSubmitted) {
@@ -187,6 +197,12 @@ export function ContactForm() {
           </p>
         )}
       </div>
+
+      {submitError && (
+        <p role="alert" className="text-sm text-red-600 bg-red-50 border border-red-200 rounded-lg px-4 py-3">
+          {submitError}
+        </p>
+      )}
 
       <button
         type="submit"
