@@ -8,11 +8,20 @@ export const metadata: Metadata = {
 export default function CookiePage() {
   return (
     <div className="min-h-screen bg-slate-50">
-      <section className="bg-slate-900 text-white py-16 md:py-24">
-        <div className="container-custom">
+      <section
+        className="relative overflow-hidden text-white"
+        style={{ background: 'linear-gradient(135deg, #0F172A 0%, #1E3A8A 50%, #1D4ED8 100%)' }}
+      >
+        <div className="absolute inset-0 overflow-hidden" aria-hidden="true">
+          <div className="absolute -top-12 -right-12 w-72 h-72 bg-blue-400/20 rounded-full blur-3xl" />
+        </div>
+        <div className="relative container-custom py-16 md:py-24">
           <div className="max-w-3xl">
-            <h1 className="text-4xl md:text-5xl font-bold font-serif mb-6">Cookie Policy</h1>
-            <p className="text-blue-200 text-lg">Last Updated: March 2024</p>
+            <p className="text-blue-300 font-semibold text-sm uppercase tracking-widest mb-4">
+              Legal & Compliance
+            </p>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-serif text-white mb-6">Cookie Policy</h1>
+            <p className="text-blue-100 text-lg">Last Updated: March 2026</p>
           </div>
         </div>
       </section>
