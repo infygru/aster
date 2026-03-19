@@ -187,7 +187,7 @@ export default async function ServicesPage() {
                     className="w-12 h-12 rounded-xl flex items-center justify-center mb-5"
                     style={{ background: c.bg }}
                   >
-                    <Icon className="w-6 h-6" style={{ color: c.icon }} aria-hidden="true" />
+                    <span style={{ color: c.icon }} aria-hidden="true"><Icon className="w-6 h-6" /></span>
                   </div>
 
                   <h3
